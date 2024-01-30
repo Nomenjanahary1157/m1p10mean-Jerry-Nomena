@@ -1,0 +1,23 @@
+{
+  "name": "m1p10mean-jerry-nomena",
+  "version": "1.0.0",
+  "description": "projet mean m1p10 Jerry Nomena",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nomenjanahary1157/m1p10mean-Jerry-Nomena-Express.git"
+  },
+  "author": "Nomena, Jerry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nomenjanahary1157/m1p10mean-Jerry-Nomena-Express/issues"
+  },
+  "homepage": "https://github.com/Nomenjanahary1157/m1p10mean-Jerry-Nomena-Express#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1"
+  }
+}
