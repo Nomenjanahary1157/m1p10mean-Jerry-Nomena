@@ -3,7 +3,7 @@ body {
   }
   .navbar,
   .footer {
-    background-color: #343a40;
+    background-color: #343a40; 
     color: white; 
   }
   .login-container {
@@ -16,12 +16,20 @@ body {
     padding: 20px;
   }
   .form-group {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
   .insertion {
     color: white; 
   }
   .text-yellow {
       color: #ffc107; 
+  }
+  .col-md-4 {
+      margin-top: 5px;
+      margin-bottom: 5px;
+  }
+  .carouselslide {
+  margin-top: 5px;
+  margin-bottom: 5px;
   }
   

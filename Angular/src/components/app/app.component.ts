@@ -1,6 +1,8 @@
 
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(private router: Router) {}
 
-  redirectToLogin(): void {
+  goToLogin() {
     this.router.navigate(['/login']);
   }
 }
