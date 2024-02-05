@@ -15,7 +15,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost:4200/Accueil">Accueil</a>
+                <a class="nav-link" routerLink="/acceuil">Accueil</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">À Propos</a>
@@ -34,12 +34,49 @@
     </div>
   </nav>
 
-  
-  
-  <div class="container">
-  </div>
-  
-  
+    <div class="container">
+        
+        <h3 class = "table-tilte">Faites votre réservation</h3>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="col">Prénom</th>
+                <th scope="col" class="col">Nom</th>
+                <th scope="col" class="col">Âge</th>
+                <th scope="col" class="col">Date de réservation</th>
+                <th scope="col" class="col">heure de réservation</th>
+                <th scope="col" class="col">Valider</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col">John</td>
+                <td class="col">Doe</td>
+                <td class="col">30</td>
+                <td class="col"><input type="date" name="date" class="form-control"></td>
+                <td class="col"><input type="time" name="time" class="form-control"></td>
+                <td class="col"><button type="submit" class="btn btn-secondary btn-block">Valider</button></td>
+              </tr>
+              <tr>
+                <td class="col">Jane</td>
+                <td class="col">Doe</td>
+                <td class="col">28</td>
+                <td class="col"><input type="date" name="date" class="form-control"></td>
+                <td class="col"><input type="time" name="time" class="form-control"></td>
+                <td class="col"><button type="submit" class="btn btn-secondary btn-block">Valider</button></td>
+              </tr>
+              <tr>
+                <td class="col">Bob</td>
+                <td class="col">Smith</td>
+                <td class="col">35</td>
+                <td class="col"><input type="date" name="date" class="form-control"></td>
+                <td class="col"><input type="time" name="time" class="form-control"></td>
+                <td class="col"><button type="submit" class="btn btn-secondary btn-block">Valider</button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      
   <footer class="footer py-4">
     <div class="container text-center">
       <p>ANDRIANIAINA Tanjona Jerry</p>

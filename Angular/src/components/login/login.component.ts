@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Utilisateur } from '../../models/utilisateur.model';
 import { UtilisateurService } from '../../services/utilisateur.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-list',
@@ -8,22 +9,12 @@ import { UtilisateurService } from '../../services/utilisateur.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  Utilisateur: Utilisateur[] = [];
-
-  constructor(private UtilisateurService: UtilisateurService) { }
-
+  constructor(private router: Router) {}
   ngOnInit(): void {
-    this.loadUtilisateurs();
+    throw new Error('Method not implemented.');
   }
 
-  loadUtilisateurs(): void {
-    this.UtilisateurService.getUtilisateurs().subscribe(
-      (data: Utilisateur[]) => {
-        this.Utilisateur = data;
-      },
-      (error) => {
-        console.error('Error loading Utilisateurs:', error);
-      }
-    );
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }

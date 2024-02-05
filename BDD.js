@@ -53,3 +53,4 @@ const depenseCollection = db.collection('Depense');
 await depenseCollection.insertOne({ idDepense: 1, idTypeDepense: 2, cout:1000000 });
 
 
+

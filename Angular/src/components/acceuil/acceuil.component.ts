@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-acceuil',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './acceuil.component.css'
 })
 export class AcceuilComponent {
+  constructor(private router: Router) {}
 
+  goToAcceuil() {
+    this.router.navigate(['/acceuil']);
+  }
 }
