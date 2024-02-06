@@ -1,0 +1,23 @@
+body {
+    background-color: #f8f9fa;
+  }
+  .navbar,
+  .footer {
+    background-color: #343a40; 
+    color: white; 
+  }
+  .col-md-4,
+  .col-md-8 {    
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  .title {    
+      text-align: center;
+      margin-top: 10px;
+    }
+  .col {    
+  text-align: center;
+  }
+  .table {    
+  border-radius: 5px;
+  }

@@ -3,9 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscription</title>
+  <title>Login</title>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Beauté Madagascar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:4200/Accueil">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">À Propos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
   <div class="container">
     <div class="row justify-content-center login-container">
       <div class="col-md-6">
@@ -16,109 +44,20 @@
           <div class="card-body">
             <form>
               <div class="form-group">
-                <label class="insertion" for="nom">Nom</label>
-                <input type="text" class="form-control" id="nom" placeholder="Entrer le nom">
+                <label class="insertion" for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
               </div>
               <div class="form-group">
-                <label class="insertion" for="prenom">Prenom</label>
-                <input type="text" class="form-control" id="prenom" placeholder="Prenom">
+                <label class="insertion" for="password">Mot de passe</label>
+                <input type="password" class="form-control" id="password" placeholder="Mot de passe">
               </div>
               <div class="form-group">
-                <label class="insertion" for="username">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="username">
-              </div>
-              <div class="form-group">
-                <label class="insertion" for="password">Password</label>
-                <input type="password" class="form-control" id="password1" placeholder="Mot de passe">
-                <input type="password" class="form-control" id="password2" placeholder="Entrer a nouveau le mot de passe">
+                <label class="insertion" for="password">Mot de passe </label>
+                <input type="password" class="form-control" id="password" placeholder="Ré-écris ton mot de passe">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Inscription</button>
             </form>
           </div>
-          <table datatable class="row-border">
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Adresse</th>
-                    <th>Ville</th>
-                    <th>Age</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Arnaud LEMAIRE</td>
-                    <td>50 Rue Barye</td>
-                    <td>Paris</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>David BARBIER</td>
-                    <td>1 Rue Barye</td>
-                    <td>Poitiers</td>
-                    <td>15</td>
-                </tr>
-                <tr>
-                    <td>Gillet ROYER</td>
-                    <td>5 Rue Barye</td>
-                    <td>Caen</td>	
-                    <td>62</td>	
-                </tr>		
-                <tr>
-                    <td>Christine KLEIN</td>
-                    <td>18 Rue Barye</td>
-                    <td>Nantes</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Anne BOUVIER</td>
-                    <td>5 Rue Barye</td>
-                    <td>Rouen</td>
-                    <td>46</td>
-                </tr>
-                <tr>
-                    <td>Pierre COUSIN</td>
-                    <td>23 Rue Barye</td>
-                    <td>Bordeaux</td>
-                    <td>37</td>
-                </tr>
-                <tr>
-                    <td>Louis LAPORTE</td>
-                    <td>77 Rue Barye</td>
-                    <td>Lille</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>David ROUSSEL</td>
-                    <td>6 Rue Barye</td>
-                    <td>Marseille</td>
-                    <td>56</td>
-                </tr>
-                <tr>
-                    <td>André GAUTIER</td>
-                    <td>15 Rue Barye</td>
-                    <td>Paris</td>
-                    <td>81</td>
-                </tr>
-                <tr>
-                    <td>Antoine MASSON</td>
-                    <td>36 Rue Barye</td>
-                    <td>Belleville</td>
-                    <td>19</td>
-                </tr>
-                <tr>
-                    <td>Pierre BOYER</td>
-                    <td>1 Rue Barye</td>
-                    <td>Lyon</td>
-                    <td>25</td>
-                </tr>
-                <tr>
-                    <td>Daniel LAMY</td>
-                    <td>2 Rue Barye</td>
-                    <td>Paris</td>
-                    <td>49</td>
-                </tr>
-            </tbody>
-        </table>
         </div>
       </div>
     </div>
