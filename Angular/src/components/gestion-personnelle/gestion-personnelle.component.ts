@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gestion-personnelle',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './gestion-personnelle.component.css'
 })
 export class GestionPersonnelleComponent {
-
+  constructor(private router: Router) {}
+  goToGestionPersonnel() {
+    this.router.navigate(['/gestionPersonnel']);
+  }
 }

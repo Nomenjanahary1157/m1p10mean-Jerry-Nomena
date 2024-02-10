@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rendezvous-employer',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './rendezvous-employer.component.css'
 })
 export class RendezvousEmployerComponent {
-
+  constructor(private router: Router) {}
+  goToRendezVousEmployer() {
+    this.router.navigate(['/rendezvousemployer']);
+  }
 }
