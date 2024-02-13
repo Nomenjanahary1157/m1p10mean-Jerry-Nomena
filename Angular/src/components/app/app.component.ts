@@ -1,17 +1,29 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
+// import { Router } from '@angular/router';
+
+// import { Router, RouterLink, RouterOutlet } from '@angular/router';
+// import { CommonModule } from '@angular/common';
+
+  // constructor(private router: Router) {}
+
+  // goToLogin() {
+  //   this.router.navigate(['/login']); 
+  // }
+
+
+// export class AppComponent {
+//   title = 'angular-routing';
+//   footerUrl = 'https://www.ganatan.com';
+//   footerLink = 'www.ganatan.com';
+// }
+
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
-  templateUrl: '../acceuil/acceuil.component.html',
-  styleUrls: ['../acceuil/acceuil.component.css'],
-  standalone: true 
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
-  constructor(private router: Router) {}
-
-  goToLogin() {
-    this.router.navigate(['/login']); 
-  }
+  title = 'Angular Router Tutorial';
 }
