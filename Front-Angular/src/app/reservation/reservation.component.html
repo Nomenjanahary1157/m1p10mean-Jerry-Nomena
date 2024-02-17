@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceuil</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Beauté Madagascar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/rendezvous">Rendez-vous</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/reservation">Reservation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/inscription">Inscription</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container">
+        
+        <h3 class = "table-tilte">Faites votre réservation</h3>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="col">Prénom</th>
+                <th scope="col" class="col">Nom</th>
+                <th scope="col" class="col">Âge</th>
+                <th scope="col" class="col">Date de réservation</th>
+                <th scope="col" class="col">heure de réservation</th>
+                <th scope="col" class="col">Valider</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col">John</td>
+                <td class="col">Doe</td>
+                <td class="col">30</td>
+                <td class="col"><input type="date" name="date" class="form-control"></td>
+                <td class="col"><input type="time" name="time" class="form-control"></td>
+                <td class="col"><button type="submit" class="btn btn-secondary btn-block">Valider</button></td>
+              </tr>
+              <tr>
+                <td class="col">Jane</td>
+                <td class="col">Doe</td>
+                <td class="col">28</td>
+                <td class="col"><input type="date" name="date" class="form-control"></td>
+                <td class="col"><input type="time" name="time" class="form-control"></td>
+                <td class="col"><button type="submit" class="btn btn-secondary btn-block">Valider</button></td>
+              </tr>
+              <tr>
+                <td class="col">Bob</td>
+                <td class="col">Smith</td>
+                <td class="col">35</td>
+                <td class="col"><input type="date" name="date" class="form-control"></td>
+                <td class="col"><input type="time" name="time" class="form-control"></td>
+                <td class="col"><button type="submit" class="btn btn-secondary btn-block">Valider</button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      
+  <footer class="footer py-4">
+    <div class="container text-center">
+      <p>ANDRIANIAINA Tanjona Jerry</p>
+      <p>RAMAROKOTO Nomenjanahary</p>
+      <p>© 2024 Beauté Madagascar.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

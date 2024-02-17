@@ -4,11 +4,21 @@ const Client = require('../models/client');
 
 router.get('/clients', async (req, res) => {
     try {
-        const clients = await Client.find(); 
-        console.log(clients); 
+        const clients = await Client.find({}); 
+        console.log("Clients récupérés :", clients); 
         res.json(clients); 
     } catch (err) {
+        console.error("Erreur lors de la récupération des clients :", err); 
         res.status(500).json({ message: err.message }); 
+    }
+});
+
+router.get('/listeClient', async function(req, res){
+    const liste = await Client.find({});
+    if(liste.length > 0) {
+        res.json({ success: true ,  data : liste });
+    } else {
+        res.json({ success: false, message: "No data" });
     }
 });
 

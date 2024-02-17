@@ -1,0 +1,93 @@
+.drag-container {
+  width: 350px;
+  max-width: 100%;
+  margin: 30px 30px 30px 30px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 2px;
+
+}
+
+.drag-list {
+  border: solid 1px #ccc;
+  min-height: 60px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.drag-box {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+body {
+  background-color: #f8f9fa;
+}
+.navbar,
+.footer {
+  background-color: #343a40; 
+  color: white; 
+}
+.table {    
+    margin-top: 10px;
+  }
+.table-tilte {    
+    text-align: center;
+    margin-top: 10px;
+  }
+  .col {    
+    text-align: center;
+  }
+
+  .custom-card {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .custom-card .card-body {
+    padding: 20px;
+  }
+  .custom-card .card-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  .custom-card .card-text {
+    color: #555;
+  }
