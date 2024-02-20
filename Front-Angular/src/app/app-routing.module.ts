@@ -7,7 +7,6 @@ import { RendezvousComponent } from './historiquerendezvous/rendezvous.component
 import { InscriptionComponent } from './inscription/inscription.component';
 import { LoginComponent } from './login/login.component';
 import { RendezvousEmployerComponent } from './rendezvous-employer/rendezvous-employer.component';
-import { ReservationComponent } from './reservation/reservation.component';
 import { DragdropComponent } from './dragdrop/dragdrop.component';
 
 const routes: Routes = [
@@ -31,9 +30,6 @@ const routes: Routes = [
   },
   {
     path : 'rendezvousEmployer' , component : RendezvousEmployerComponent
-  },
-  {
-    path : 'reservation' , component : ReservationComponent
   },
   {
     path : 'dragDrop' , component : DragdropComponent

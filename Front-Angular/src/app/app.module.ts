@@ -18,7 +18,6 @@ import { RendezvousComponent } from './historiquerendezvous/rendezvous.component
 import { InscriptionComponent } from './inscription/inscription.component';
 import { LoginComponent } from './login/login.component';
 import { RendezvousEmployerComponent } from './rendezvous-employer/rendezvous-employer.component';
-import { ReservationComponent } from './reservation/reservation.component';
 import { DragdropComponent } from './dragdrop/dragdrop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
@@ -32,7 +31,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     InscriptionComponent,
     LoginComponent,
     RendezvousEmployerComponent,
-    ReservationComponent,
     DragdropComponent
   ],
   imports: [

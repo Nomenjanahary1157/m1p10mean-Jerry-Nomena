@@ -21,7 +21,7 @@
                 <a class="nav-link" routerLink="/rendezvous">Rendez-vous</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/reservation">Reservation</a>
+                <a class="nav-link" routerLink="/dragDrop">Reservation</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/login">Login</a>
@@ -34,15 +34,15 @@
     </div>
   </nav>
 
-    <div class="container">
+  <div class="container">
         
-        <h3 class = "table-tilte">Faites votre réservation</h3>
-        <hr>
+    <h3 class="table-tilte">Faites votre réservation</h3>
+    <hr>
 
         <div class="drag-container">
             <div class="custom-card">
                 <div class="card-body">
-                    <h5 class="card-title">RAMAROKOTO Nomenjanahary </h5>
+                    <h5 class="card-title">RAMAROKOTO Nomenjanahary</h5>
                     <p class="card-text">Nombre de visite : 3</p>
                 </div>
             </div>
@@ -51,32 +51,57 @@
         <div class="drag-container">
             <h5>Les services disponibles</h5>
             <div
-            cdkDropList
-            #todoList="cdkDropList"
-            [cdkDropListData]="todo"
-            [cdkDropListConnectedTo]="[doneList]"
-            class="drag-list"
-            (cdkDropListDropped)="drop($event)">
-            <div *ngFor="let item of todo; let i = index" class="drag-box" cdkDrag>{{item}}</div>
+                cdkDropList
+                #todoList="cdkDropList"
+                [cdkDropListData]="todo"
+                [cdkDropListConnectedTo]="[doneList]"
+                class="drag-list"
+                (cdkDropListDropped)="drop($event)">
+                <div *ngFor="let item of todo; let i = index" class="drag-box" cdkDrag>{{item}}</div>
+            </div>
+            <h5>Les agents disponibles</h5>
+            <div
+                cdkDropList
+                #persList="cdkDropList"
+                [cdkDropListData]="personListe"
+                [cdkDropListConnectedTo]="[perList]"
+                class="drag-list"
+                (cdkDropListDropped)="drop($event)">
+                <div *ngFor="let item of personListe; let i = index" class="drag-box" cdkDrag>{{item}}</div>
             </div>
         </div>
-        
+
         <div class="drag-container">
             <h5>Votre commande</h5>
-                <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
-                    class="drag-list" (cdkDropListDropped)="drop($event)">
-                    <div *ngFor="let item of done; let i = index" class="drag-box" cdkDrag>{{item}}</div>
-                </div>
-                <label>Date de réservation</label>
-                <input type="date" name="date" class="form-control" [(ngModel)]="reservationDate">
-                <label>Heure de réservation</label>
-                <input type="time" name="time" class="form-control" [(ngModel)]="reservationTime">
-                <br>
-                <button type="submit" class="btn btn-secondary btn-block" style="width: 100%;" (click)="submitReservation()">Valider la reservation</button>
-        </div>
+            <div
+                cdkDropList
+                #doneList="cdkDropList"
+                [cdkDropListData]="done"
+                [cdkDropListConnectedTo]="[todoList]"
+                class="drag-list"
+                (cdkDropListDropped)="drop($event)">
+                <div *ngFor="let item of done; let i = index" class="drag-box" cdkDrag>{{item}}</div>
+            </div>
+            <h5>Votre Agent</h5>
+            <div
+                cdkDropList
+                #perList="cdkDropList"
+                [cdkDropListData]="personnel"
+                [cdkDropListConnectedTo]="[persList]"
+                class="drag-list"
+                (cdkDropListDropped)="drop($event)">
+                <div *ngFor="let item of personnel; let i = index" class="drag-box" cdkDrag>{{item}}</div>
+            </div>
 
+            <label>Date de réservation</label>
+            <input type="date" name="date" class="form-control" [(ngModel)]="reservationDate">
+            <label>Heure de réservation</label>
+            <input type="time" name="time" class="form-control" [(ngModel)]="reservationTime">
+            <br>
+            <button type="submit" class="btn btn-secondary btn-block" style="width: 100%;" (click)="submitReservation()">Valider la reservation</button>
+        </div>
     </div>
-      
+
     <footer class="footer py-4">
       <div class="container text-center">
         <p>ANDRIANIAINA Tanjona Jerry</p>
@@ -92,4 +117,3 @@
   
   </body>
   </html>
-  

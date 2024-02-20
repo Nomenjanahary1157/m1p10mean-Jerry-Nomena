@@ -10,6 +10,11 @@ export class DragdropComponent {
     todo: string[] = ['Manicure', 'Pédicure', 'Coiffure'];
 
     done: string[] = [];
+
+    personListe: string[] = ['Jeanne','Jean'];
+
+    personnel: string[] = [];
+
     reservationDate: string = '';
     reservationTime: string = '';
 
@@ -29,11 +34,12 @@ export class DragdropComponent {
     submitReservation() {
         const date = this.reservationDate;
         const time = this.reservationTime;
-
         const doneItems = this.done;
+        const person = this.personnel;
 
         console.log('Date de réservation:', date);
         console.log('Heure de réservation:', time);
         console.log('Articles commandés:', doneItems);
+        console.log('personnel choisi:', person);
     }
 }

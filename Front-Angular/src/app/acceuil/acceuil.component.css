@@ -1,11 +1,33 @@
 body {
-    background-color: #f8f9fa;
-  }
-  .navbar,
-  .footer {
-    background-color: #343a40; 
-    color: white; 
-  }
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0; 
+}
+
+.container {
+  flex: 1;
+}
+
+.footer {
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar {
+  background-color: #343a40;
+  color: white;
+  padding: 10px 0;
+}
+
+.navbar-brand {
+  margin-left: 20px;
+}
+
   .login-container {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -16,7 +38,7 @@ body {
     padding: 20px;
   }
   .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
   }
   .insertion {
     color: white; 
@@ -24,12 +46,13 @@ body {
   .text-yellow {
       color: #ffc107; 
   }
+  
   .col-md-4 {
-      margin-top: 5px;
-      margin-bottom: 5px;
+      margin-top: 10px;
+      margin-left: -10px;
+      margin-bottom: 10px;
   }
-  .carouselslide {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  }
+  .card-body {
+    text-align: center;
+}
   
