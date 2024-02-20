@@ -34,10 +34,10 @@
 
   <div class="container">
         
-    <h3 class="table-tilte">Nos Manucure</h3>
+    <h3 class="table-tilte">Nos coupes de Cheveux</h3>
     <hr>
         <div class="drag-container">
-            <h5 style="text-align: center;">Nos style de Manucure</h5>
+            <h5 style="text-align: center;">Les coupes disponibles</h5>
             <div
                 cdkDropList
                 #todoList="cdkDropList"
@@ -47,9 +47,9 @@
                 (cdkDropListDropped)="drop($event)">
                 <div *ngFor="let item of todo; let i = index" class="drag-box" cdkDrag>{{item}}</div>
             </div>
-          </div>
-          <div class="drag-container">
-            <h5 style="text-align: center;">Nos Agent</h5>
+        </div>
+        <div class="drag-container">
+            <h5 style="text-align: center;">Nos Agents</h5>
             <div
                 cdkDropList
                 #persList="cdkDropList"
@@ -62,7 +62,7 @@
         </div>
 
         <div class="drag-container">
-            <h5 style="text-align: center;">Votre Manucure</h5>
+            <h5 style="text-align: center;">Votre coupe </h5>
             <div
                 cdkDropList
                 #doneList="cdkDropList"
@@ -72,6 +72,7 @@
                 (cdkDropListDropped)="drop($event)">
                 <div *ngFor="let item of done; let i = index" class="drag-box" cdkDrag>{{item}}</div>
             </div>
+            <br>
             <h5 style="text-align: center;">L'Agent qui vous prendra en charge</h5>
             <div
                 cdkDropList

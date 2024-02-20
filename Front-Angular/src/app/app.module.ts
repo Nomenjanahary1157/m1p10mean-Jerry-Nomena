@@ -20,6 +20,8 @@ import { LoginComponent } from './login/login.component';
 import { RendezvousEmployerComponent } from './rendezvous-employer/rendezvous-employer.component';
 import { DragdropComponent } from './dragdrop/dragdrop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragdropPedicureComponent } from './dragdrop-pedicure/dragdrop-pedicure.component';
+import { DragdropCheveuxComponent } from './dragdrop-cheveux/dragdrop-cheveux.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     InscriptionComponent,
     LoginComponent,
     RendezvousEmployerComponent,
-    DragdropComponent
+    DragdropComponent,
+    DragdropPedicureComponent,
+    DragdropCheveuxComponent
   ],
   imports: [
     BrowserModule,

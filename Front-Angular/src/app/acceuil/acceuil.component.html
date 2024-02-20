@@ -8,7 +8,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Beauté Madagascar</a>
+      <a class="navbar-brand" href="#">Salon-Blanc Madagascar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,13 +21,7 @@
                 <a class="nav-link" routerLink="/rendezvous">Rendez-vous</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/dragDrop">Reservation</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" routerLink="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/inscription">Inscription</a>
             </li>
         </ul>
       </div>
@@ -35,39 +29,49 @@
   </nav>
 
   
-  
+  <div style="position: relative;">
+    <img src="../../assets/img/home.png" class="d-block w-100" alt="..." style="object-fit: cover; height: 700px; border-radius: 5px;">
+    <div class="card-body" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px;">
+      <h1 style="text-align: center;">Bienvenue Chez Salon-Blanc Madagascar</h1>
+    </div>
+  </div>
+
   <div class="container">
-    <img src="../../assets/img/home.png" class="d-block w-100" alt="..." style="object-fit: cover; height: 700px; margin-top: 10px; margin-bottom: 10px; border-radius: 5px;">
     <div class="row">
-      <h1 style="text-align: center;">Bienvenue Chez Beauté Madagascar</h1>
+      <h2 style="text-align: center;margin-top: 30px;">Nos services</h2>
       <hr>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card">
-          <img src="../../assets/img/coiffure.jpg" class="card-img-top" alt="..." style="height: 300px;width: 100%;">
-          <div class="card-body">
-            <h5 class="card-title">Cheveux</h5>
-              <button type="submit" class="btn btn-secondary btn-block" routerLink="/dragDrop">Faire une reservation</button>
+          <div style="position: relative;">
+          <img src="../../assets/img/coiffure.jpg" class="card-img-top" alt="..." style="height: 450px;width: 100%;">
+          <div class="card-body" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px;">
+            <a class="card-title" routerLink="/dragDropCheveux">Cheveux</a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div style="position: relative;">
+            <img src="../../assets/img/manucure.jpg" class="card-img-top" alt="..." style="height: 450px;width: 100%;">
+            <div class="card-body" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px;">
+              <a class="card-title" routerLink="/dragDrop">Manucure</a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      
+      <div class="col-md-3">
         <div class="card">
-          <img src="../../assets/img/manucure.jpg" class="card-img-top" alt="..." style="height: 300px;width: 100%;">
-          <div class="card-body">
-            <h5 class="card-title">Manucure</h5>
-              <button type="submit" class="btn btn-secondary btn-block" routerLink="/dragDrop">Faire une reservation</button>
-          </div>
+            <div style="position: relative;">
+                <img src="../../assets/img/peducure.jpg" class="card-img-top" alt="..." style="height: 450px;width: 100%;">
+                <div class="card-body" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px;">
+                    <a class="card-title" routerLink="/dragDropPeducure">Péducure</a>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="../../assets/img/peducure.jpg" class="card-img-top" alt="..." style="height: 300px;width: 100%;">
-          <div class="card-body">
-            <h5 class="card-title">Péducure</h5>
-              <button type="submit" class="btn btn-secondary btn-block" routerLink="/dragDrop">Faire une reservation</button>
-          </div>
-        </div>
-      </div>
+    </div>
+
     </div>
   </div>
   
@@ -76,7 +80,7 @@
     <div class="container text-center">
       <p>ANDRIANIAINA Tanjona Jerry</p>
       <p>RAMAROKOTO Nomenjanahary</p>
-      <p>© 2024 Beauté Madagascar.</p>
+      <p>© 2024 Salon-Blanc Madagascar.</p>
     </div>
   </footer>
 

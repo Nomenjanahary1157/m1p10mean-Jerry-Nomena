@@ -11,4 +11,5 @@ router.get('/servEmployers', async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = express.Router();
+

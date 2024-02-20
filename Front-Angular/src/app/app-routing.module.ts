@@ -8,6 +8,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { LoginComponent } from './login/login.component';
 import { RendezvousEmployerComponent } from './rendezvous-employer/rendezvous-employer.component';
 import { DragdropComponent } from './dragdrop/dragdrop.component';
+import { DragdropPedicureComponent } from './dragdrop-pedicure/dragdrop-pedicure.component';
+import { DragdropCheveuxComponent } from './dragdrop-cheveux/dragdrop-cheveux.component';
 
 const routes: Routes = [
   {
@@ -33,6 +35,12 @@ const routes: Routes = [
   },
   {
     path : 'dragDrop' , component : DragdropComponent
+  },
+  {
+    path : 'dragDropPeducure' , component : DragdropPedicureComponent
+  },
+  {
+    path : 'dragDropCheveux' , component : DragdropCheveuxComponent
   },
 ];
 

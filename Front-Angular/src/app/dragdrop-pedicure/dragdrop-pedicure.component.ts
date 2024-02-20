@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-dragdrop',
-  templateUrl: './dragdrop.component.html',
-  styleUrls: ['./dragdrop.component.css']
+    selector: 'app-dragdrop',
+    templateUrl: './dragdrop-pedicure.component.html',
+    styleUrls: ['./dragdrop-pedicure.component.css']
 })
-export class DragdropComponent {
+export class DragdropPedicureComponent {
   constructor(private router: Router) {}
-  todo: string[] = [
-    'La manucure classique',
-    'La manucure classique express',
-    'La manucure brésilienne',
-    'La manucure japonaise',
-    'La manucure russe'
-];
+    
+    todo: string[] = [
+        'BLANC CRAIE',
+        'RENCH PÉDICURE',
+        'ONGLES ROUGES.',
+        'VERT ACIDE',
+        'JAUNE FLUO',
+        'MAINS ET PIEDS DÉPAREILLÉS'
+    ];
 
     done: string[] = [];
 
@@ -52,3 +55,4 @@ export class DragdropComponent {
       this.router.navigateByUrl('/rendezvous');
     }
 }
+

@@ -24,7 +24,7 @@
     "@popperjs/core": "^2.11.6",
     "@syncfusion/ej2-angular-notifications": "^20.4.42",
     "angular-datatables": "^15.0.0",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.3",
     "datatables.net": "^1.13.1",
     "datatables.net-dt": "^1.13.1",
     "jquery": "^3.6.3",
