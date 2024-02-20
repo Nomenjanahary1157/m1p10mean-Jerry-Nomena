@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Employer = require('../models/employe');
 
+module.exports = function(router){
+
 router.get('/employers', async (req, res) => {
     try {
         const employers = await Employer.find();
@@ -11,5 +13,7 @@ router.get('/employers', async (req, res) => {
     }
 });
 
-module.exports = express.Router();
+return router;
+        
+}
 
