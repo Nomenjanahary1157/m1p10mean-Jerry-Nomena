@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const PlanningEmployer = require('../models/planning');
 
-module.exports = function(router){
-
     router.get('/planningemployers', async (req, res) => {
         try {
             const planningEmployers = await PlanningEmployer.find();
@@ -13,8 +11,7 @@ module.exports = function(router){
         }
     });
 
-return router;
-        
-}
+module.exports = router;
+
 
 

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const ServEmployerRemise = require('../models/servEmployeRemise');
 
-module.exports = function(router){
 
     router.get('/servEmployerRemises', async (req, res) => {
         try {
@@ -13,6 +12,6 @@ module.exports = function(router){
         }
     });
 
-return router;
-        
-}
+
+module.exports = router;
+

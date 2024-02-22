@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const RDV = require('../models/rendezvous');
 
-module.exports = function(router){
 
 router.get('/rdvs', async (req, res) => {
     try {
@@ -13,6 +12,4 @@ router.get('/rdvs', async (req, res) => {
     }
 });
 
-return router;
-        
-}
+module.exports = router;

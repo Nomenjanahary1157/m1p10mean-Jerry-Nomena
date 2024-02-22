@@ -14,7 +14,7 @@ var ServEmployeRemiseRoutes = require('./Routes/servEmployeRemiseRoutes');
 var TypeDepenseRoutes = require('./Routes/typeDepenseRoutes');
 
 var app = express();
-var port = process.env.PORT ||  2024;
+var port = process.env.PORT || 2024;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

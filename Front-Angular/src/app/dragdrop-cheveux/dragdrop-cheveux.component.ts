@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./dragdrop-cheveux.component.css']
 })
 export class DragdropCheveuxComponent {
+  isLoading: boolean = false;
+
   constructor(private router: Router) {}
     
     todo: string[] = [
@@ -44,6 +46,8 @@ export class DragdropCheveuxComponent {
     }
 
     submitReservation() {
+    this.isLoading = true; 
+
         const date = this.reservationDate;
         const time = this.reservationTime;
         const doneItems = this.done;
@@ -54,7 +58,10 @@ export class DragdropCheveuxComponent {
         console.log('Articles commandés:', doneItems);
         console.log('personnel choisi:', person);
 
-      this.router.navigateByUrl('/rendezvous');
+        setTimeout(() => {
+          this.isLoading = false; 
+          this.router.navigateByUrl('/rendezvous');
+        }, 2000); 
     }
 }
 
