@@ -11,25 +11,29 @@
     <div class="container">
       <a class="navbar-brand" href="#">Salon-Blanc Madagascar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/rendezvous">Rendez-vous</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Login</a>
-          </li>
-        </ul>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="">Accueil</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/rendezvous">Rendez-vous</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <div *ngIf="showRDVAlert" class="alert alert-warning mt-2" role="alert" id="notificationBanner">
+                  Votre rendez-vous sera le "29 Février 2024".
+                </div>
+              </li>
+          </ul>
       </div>
-    </div>
+  </div>
   </nav>
 
-  
   <div style="position: relative;">
     <img src="../../assets/img/home.png" class="d-block w-100" alt="..." style="object-fit: cover; height: 700px; border-radius: 5px;">
     <div class="card-body" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px;">
@@ -52,10 +56,10 @@
         </form>
         <div *ngIf="showEmptyAlert" class="alert alert-danger mt-2" role="alert">
           Veuillez entrer quelque chose à rechercher.
-      </div>
-      <div *ngIf="showNotFoundAlert" class="alert alert-warning mt-2" role="alert">
-          Aucun service trouvé pour la recherche "{{ form.recherche }}".
-      </div>
+        </div>
+        <div *ngIf="showNotFoundAlert" class="alert alert-warning mt-2" role="alert">
+            Aucun service trouvé pour la recherche "{{ form.recherche }}".
+        </div>
       </div>
       <div class="col-md-2">
       </div>
@@ -104,6 +108,7 @@
     </div>
   </footer>
 
+  
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

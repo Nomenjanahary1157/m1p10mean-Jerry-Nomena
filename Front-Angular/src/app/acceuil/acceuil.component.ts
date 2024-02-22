@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,44 +6,43 @@ import { Router } from '@angular/router';
   templateUrl: './acceuil.component.html',
   styleUrls: ['./acceuil.component.css']
 })
-export class AcceuilComponent {
+export class AcceuilComponent implements OnInit {
   form: any = {
     recherche: null,
   };
 
   showEmptyAlert: boolean = false;
+  showRDVAlert: boolean = true;
   showNotFoundAlert: boolean = false;
   
   constructor(private router: Router) {}
 
-  goToAcceuil() {
-    this.router.navigate(['/acceuil']);
+  ngOnInit() {
+    setTimeout(() => {
+      this.showRDVAlert = false; 
+    }, 5000);
   }
 
   rechercher() {
     const { recherche } = this.form;
-    console.log(recherche);
 
     if (!recherche) {
-      console.log("Veuillez entrer quelque chose à rechercher.");
       this.showEmptyAlert = true;
       this.showNotFoundAlert = false;
       return;
-    }
-    else {
+    } else {
       this.showEmptyAlert = false;
     }
+
     if (!this.rechercherManucure(recherche) && !this.rechercherPedicure(recherche) && !this.rechercherCheveux(recherche)) {
       this.showNotFoundAlert = true;
-  } else {
+    } else {
       this.showNotFoundAlert = false; 
-  }
+    }
 
     if (this.rechercherManucure(recherche)) return;
     if (this.rechercherPedicure(recherche)) return;
     if (this.rechercherCheveux(recherche)) return;
-
-    console.log("Aucun service trouvé pour la recherche: " + recherche);
   }
 
   rechercherManucure(recherche: string): boolean {
