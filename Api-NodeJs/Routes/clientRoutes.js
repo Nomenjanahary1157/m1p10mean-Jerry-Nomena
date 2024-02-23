@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var Client = require('../models/client');
+const express = require('express');
+const router = express.Router();
+const Client = require('../models/client');
 
 router.post('/clients', async (req, res) => {
     try {
@@ -19,7 +19,7 @@ router.post('/clients', async (req, res) => {
 
 router.get('/clients', async (req, res) => {
     try {
-        const clients = await Client.find({});
+        const clients = await Client.find();
         res.json(clients);
     } catch (err) {
         res.status(500).json({ message: err.message });

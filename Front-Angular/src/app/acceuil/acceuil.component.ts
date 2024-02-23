@@ -12,14 +12,20 @@ export class AcceuilComponent implements OnInit {
   };
 
   showEmptyAlert: boolean = false;
-  showRDVAlert: boolean = true;
+  showRDVAlert: boolean = false;
   showNotFoundAlert: boolean = false;
+  showPromotionAlert: boolean = false;
   
   constructor(private router: Router) {}
 
   ngOnInit() {
+    this.showRDVAlert = true;
     setTimeout(() => {
-      this.showRDVAlert = false; 
+        this.showRDVAlert = false;
+        this.showPromotionAlert = true;
+        setTimeout(() => {
+            this.showPromotionAlert = false;
+        }, 15000);
     }, 5000);
   }
 
