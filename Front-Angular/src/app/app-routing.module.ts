@@ -10,6 +10,8 @@ import { RendezvousEmployerComponent } from './rendezvous-employer/rendezvous-em
 import { DragdropComponent } from './dragdrop/dragdrop.component';
 import { DragdropPedicureComponent } from './dragdrop-pedicure/dragdrop-pedicure.component';
 import { DragdropCheveuxComponent } from './dragdrop-cheveux/dragdrop-cheveux.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+
 
 const routes: Routes = [
   {
@@ -41,6 +43,9 @@ const routes: Routes = [
   },
   {
     path : 'dragDropCheveux' , component : DragdropCheveuxComponent
+  },
+  {
+    path : 'adminLog' , component : AdminLoginComponent
   },
 ];
 

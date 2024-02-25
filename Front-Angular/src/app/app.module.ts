@@ -22,6 +22,7 @@ import { DragdropComponent } from './dragdrop/dragdrop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DragdropPedicureComponent } from './dragdrop-pedicure/dragdrop-pedicure.component';
 import { DragdropCheveuxComponent } from './dragdrop-cheveux/dragdrop-cheveux.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DragdropCheveuxComponent } from './dragdrop-cheveux/dragdrop-cheveux.co
     RendezvousEmployerComponent,
     DragdropComponent,
     DragdropPedicureComponent,
-    DragdropCheveuxComponent
+    DragdropCheveuxComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
