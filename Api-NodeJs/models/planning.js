@@ -19,4 +19,4 @@ const planningEmployerSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('PlanningEmployer', planningEmployerSchema);
+module.exports = mongoose.model("PlanningEmployer", planningEmployerSchema, "PlanningEmployer");

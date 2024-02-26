@@ -27,4 +27,4 @@ const servEmployerRemiseSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('ServEmployerRemise', servEmployerRemiseSchema);
+module.exports = mongoose.model("ServEmployerRemise", servEmployerRemiseSchema, "ServEmployerRemise");

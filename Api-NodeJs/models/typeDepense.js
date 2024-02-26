@@ -11,4 +11,4 @@ const typeDepenseSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('TypeDepense', typeDepenseSchema);
+module.exports = mongoose.model("TypeDepense", typeDepenseSchema, "TypeDepense");

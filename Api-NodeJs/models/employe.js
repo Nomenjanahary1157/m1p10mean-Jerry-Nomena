@@ -28,4 +28,4 @@ const employerSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Employer', employerSchema);
+module.exports = mongoose.model("Employer", employerSchema, "Employer");

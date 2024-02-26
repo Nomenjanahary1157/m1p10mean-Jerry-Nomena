@@ -15,4 +15,4 @@ const depenseSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Depense', depenseSchema);
+module.exports = mongoose.model("Depense", depenseSchema, "Depense");

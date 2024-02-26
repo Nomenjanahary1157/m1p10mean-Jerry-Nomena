@@ -15,4 +15,4 @@ const servEmployerSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('ServEmployer', servEmployerSchema);
+module.exports = mongoose.model("ServEmployer", servEmployerSchema, "ServEmployer");

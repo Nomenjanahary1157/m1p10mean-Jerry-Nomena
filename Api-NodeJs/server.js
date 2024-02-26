@@ -20,7 +20,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-mongoose.connect('mongodb+srv://Jerry-Nomena:Jerry-Nomena@cluster0.mgwsizr.mongodb.net/myDatabase?retryWrites=true&w=majority')
+const username = 'Jerry-Nomena';
+const password = 'Jerry-Nomena';
+const dbName = 'myDatabase';
+
+mongoose.connect(`mongodb+srv://Jerry-Nomena:Jerry-Nomena@cluster0.mgwsizr.mongodb.net/myDatabase?retryWrites=true&w=majority`)
     .then(() => {
         console.log("Connected to Database");
     })
@@ -41,3 +45,6 @@ app.use('/api', TypeDepenseRoutes);
 app.listen(port, function() {
     console.log('Running the server on port ' + port);
 });
+
+//mongosh--username Jerry-Nomena --password Jerry-Nomena --authenticationDatabase admin
+//mongo --username admin --password Jerry-Nomena --authenticationDatabase admin
