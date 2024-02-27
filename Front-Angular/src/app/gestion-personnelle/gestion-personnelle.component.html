@@ -22,7 +22,7 @@
           </li>
         </ul>
       </div>
-      <a class="admin-link" routerLink="/adminLog" style="color:rgb(224,210,186); text-decoration: none; float:right" >deconnection</a>
+      <a class="admin-link" routerLink="/adminLog" style="color:rgb(168,155,141); text-decoration: none; float:right" >deconnection</a>
 
     </div>
   </nav>
@@ -49,20 +49,21 @@
               <input class="form-control" type="date"  id="dateEmbauche" name="dateEmbauche" placeholder="">
               <br>  
               <label for="">Service : </label>
-              <button class="btn btn-primary" onclick="addInputField()" style="background-color:rgb(224,210,186); border-color:rgb(246,247,249); color: black">+</button>
+              <button class="btn btn-primary" (click)="addInputField()" style="background-color:rgb(168,155,141); border-color:rgb(246,247,249); color: black">+</button>
               <br> 
               <br> 
-              <div class="form-group">
+              <div class="form-group" *ngFor="let index of inputFields; let i = index">
+              <button class="btn btn-danger" (click)="removeInputField(i)" style="float:right">-</button>
                 <select id="select_role" class="form-control">
                   <option selected>Choisir</option>
-                  
                   <option value="">poste.designation</option>
-                    
                 </select>
+                <br>
               </div>    
+
             </div>
             <br>
-            <button class="btn btn-primary form-control" type="submit" style="background-color:rgb(224,210,186); border-color:rgb(246,247,249); color: black">Inscrire Personnelle</button>
+            <button class="btn btn-primary form-control" type="submit" style="background-color:rgb(168,155,141); border-color:rgb(246,247,249); color: black">Inscrire Personnelle</button>
           </div>
         </div>
         <div class="col-md-8">
@@ -84,7 +85,7 @@
               <td class="result" name="nameIdentifant" id="identifiant">result.identifiant</td>
               <td class="result" name="nameRole" id="role">result.salaire</td>
               <td align="center">
-                <button class="btn btn-success form-control" data-toggle="modal" data-target="#myMProfil">MODIFIER</button>
+                <button class="btn btn-success form-control"  (click)="updateModal()">MODIFIER</button>
               </td>  
             </tr>
             <tr>
@@ -99,7 +100,7 @@
               <td align="center">
               </td>
               <td align="left">
-                  <!-- <button class="btn btn-danger form-control " (click)="openDeleteModal()">SUPPRIMER</button> -->
+                  <button class="btn btn-danger form-control " (click)="openModal()">SUPPRIMER</button>
               </td>
             </tr>
           </table>
@@ -117,29 +118,6 @@
       <p>© 2024 Salon-Blanc Madagascar.</p>
     </div>
   </footer>
-
-
-
-  <div class="modal fade" id="myDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="myModalLabel">Avertissement</h4>
-            </div>
-            
-            <div class="modal-body">
-                <h6 id="titre_table"></h6>
-                <ul id="liste_supprimer"></ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                <button type="submit" id="delete" class="btn btn-danger" >Supprimer</button>
-            </div>
-
-        </div>
-    </div>
-</div> 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

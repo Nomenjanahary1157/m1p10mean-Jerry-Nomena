@@ -22,7 +22,7 @@
           </li>
         </ul>
       </div>
-      <a class="admin-link" routerLink="/adminLog" style="color:rgb(224,210,186); text-decoration: none; float:right" >deconnection</a>
+      <a class="admin-link" routerLink="/adminLog" style="color:rgb(168,155,141); text-decoration: none; float:right" >deconnection</a>
     </div>
   </nav>
   <br>
@@ -37,7 +37,7 @@
               <input class="form-control" type="text" name="newService" id="newService" placeholder="Nom du Service" required>
             </div>
             <br>
-            <button class="btn btn-primary form-control" type="submit">Ajouter Service</button>
+            <button class="btn btn-primary form-control" type="submit" style="background-color:rgb(168,155,141); border-color:rgb(246,247,249); color: black">Ajouter Service</button>
           </div>
         </div>
         <div class="col-md-8">
@@ -55,7 +55,7 @@
               <td class="result" name="id" id="id" >result.id</td>
               <td class="result" name="nameService" id="name">result.designation</td>
               <td align="center">
-                <button class="btn btn-success form-control"  data-toggle="modal" data-target="#myModal">MODIFIER</button>
+                <button class="btn btn-success form-control"  (click)="updateModal()">MODIFIER</button>
               </td>  
             </tr>
             <tr>
@@ -67,7 +67,7 @@
               </td>
               
               <td align="left">
-                <button class="btn btn-danger form-control "  data-toggle="modal" data-target="#myDelete">SUPPRIMER</button>
+                <button class="btn btn-danger form-control " (click)="openModal()">SUPPRIMER</button>
               </td>
             </tr>
           </table>
@@ -85,29 +85,6 @@
       <p>© 2024 Salon-Blanc Madagascar.</p>
     </div>
   </footer>
-
-
-
-  <div class="modal fade" id="myDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="myModalLabel">Avertissement</h4>
-            </div>
-            
-            <div class="modal-body">
-                <h6 id="titre_table"></h6>
-                <ul id="liste_supprimer"></ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                <button type="submit" id="delete" class="btn btn-danger" >Supprimer</button>
-            </div>
-
-        </div>
-    </div>
-</div> 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

@@ -1,0 +1,15 @@
+<div class="card" style="width:500px">
+    <div class="card-header">
+        <button type="button" class="close" (click)="closeModal()"><span aria-hidden="true">×</span></button>
+        <h4 class="title" >Avertissement de modification</h4>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">(designation)</h5>
+      <!-- <p class="card-text">Etes vous sure de vouloir supprimer ?</p> -->
+      <input type="text" class="" placeholder="(designation)">
+    </div>
+    <div class="card-footer" style="text-align:right">
+        <button type="button" class="btn btn-default" (click)="closeModal()">Annuler</button>
+        <button type="submit" id="delete" class="btn btn-success" >Modifier</button>
+    </div>
+</div>

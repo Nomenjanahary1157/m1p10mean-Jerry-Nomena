@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteComponent } from '../delete/delete.component';
+import { UpdateComponent } from '../update/update.component';
+
 
 @Component({
   selector: 'app-gestion-service',
@@ -7,8 +11,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./gestion-service.component.css']
 })
 export class GestionServiceComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router,private dialog: MatDialog) {}
   goToGestionServicel() {
     this.router.navigate(['/gestionServicel']);
+  }
+  openModal(): void {
+    this.dialog.open(DeleteComponent);
+  }
+  updateModal(): void {
+    this.dialog.open(UpdateComponent);
   }
 }

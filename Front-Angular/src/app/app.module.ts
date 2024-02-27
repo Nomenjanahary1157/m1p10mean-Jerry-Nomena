@@ -23,6 +23,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DragdropPedicureComponent } from './dragdrop-pedicure/dragdrop-pedicure.component';
 import { DragdropCheveuxComponent } from './dragdrop-cheveux/dragdrop-cheveux.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteComponent } from './delete/delete.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     DragdropComponent,
     DragdropPedicureComponent,
     DragdropCheveuxComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    DeleteComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     ToastrModule.forRoot(),
     NgbModule,
     DataTablesModule,
-    DragDropModule
+    DragDropModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
