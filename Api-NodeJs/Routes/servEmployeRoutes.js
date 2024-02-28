@@ -12,4 +12,18 @@ router.get('/servEmployers', async (req, res) => {
     }
 });
 
+router.get('/servEmployers/:id', async (req, res) => {
+    try {
+        const id = req.params.id; 
+        const servEmployers = await ServEmployer.findOne({ idServEmployer: id }); 
+        if (servEmployers) {
+            res.json(servEmployers);
+        } else {
+            res.status(404).json({ message: 'servEmployers non trouvé' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;

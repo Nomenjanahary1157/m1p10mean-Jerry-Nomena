@@ -49,22 +49,22 @@
       </div>
       <div class="col-md-9">
         <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">ID Client</th>
-              <th scope="col">ID Service Employé</th>
+          <thead class="thead-dark" >
+            <tr style="text-align: center;">
+              <th scope="col">Service</th>
+              <th scope="col">Employer</th>
               <th scope="col">Date de Réservation</th>
+              <th scope="col">Heure de reservation</th>
+              <th scope="col">Prix</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let rendezVous of rendezVousData; let i = index">
-              <td>{{ i + 1 }}</td>
-              <td>{{ rendezVous._id }}</td>
-              <td>{{ rendezVous.idServEmployer }}</td>
-              <td>{{ rendezVous.date | date: 'yyyy-MM-dd' }}</td>
-            </tr>
-          </tbody>
+          <tr *ngFor="let rendezVous of rendezVousData; let i = index" style="text-align: center;">
+            <td>{{ services[i].nomService }}</td> 
+            <td>{{ employes[i]?.nomEmployer }} {{ employes[i]?.prenomEmployer }}</td> 
+            <td>{{ rendezVous.date | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ rendezVous.date | date: 'hh:mm' }}</td>
+            <td>{{ services[i].prix}} Ariary</td>
+        </tr>
         </table>
       </div>
     </div>

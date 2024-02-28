@@ -13,7 +13,8 @@ router.get('/employers', async (req, res) => {
 
 router.get('/employers/:id', async (req, res) => {
     try {
-        const employers = await Employer.findById(req.params.idEmployer);
+        const id = req.params.id; 
+        const employers = await Employer.findOne({ idEmployer: id }); 
         if (employers) {
             res.json(employers);
         } else {

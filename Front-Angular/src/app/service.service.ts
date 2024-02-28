@@ -22,7 +22,15 @@ export class ServiceService {
   }
 
   getEmployerbyID(idEmployer: number): Observable<any> {
-    return this.http.get<any>(`${base_url}/clients/${idEmployer}`);
+    return this.http.get<any>(`${base_url}/employers/${idEmployer}`);
+  }
+
+  getServEmployerbyID(idservEmployers: number): Observable<any> {
+    return this.http.get<any>(`${base_url}/servEmployers/${idservEmployers}`);
+  }
+
+  getServicerbyID(idservice: number): Observable<any> {
+    return this.http.get<any>(`${base_url}/services/${idservice}`);
   }
 
 }

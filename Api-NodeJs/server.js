@@ -46,5 +46,4 @@ app.listen(port, function() {
     console.log('Running the server on port ' + port);
 });
 
-//mongosh--username Jerry-Nomena --password Jerry-Nomena --authenticationDatabase admin
-//mongo --username admin --password Jerry-Nomena --authenticationDatabase admin
+
