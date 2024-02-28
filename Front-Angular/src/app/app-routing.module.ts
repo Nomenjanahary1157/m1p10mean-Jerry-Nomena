@@ -11,6 +11,7 @@ import { DragdropComponent } from './dragdrop/dragdrop.component';
 import { DragdropPedicureComponent } from './dragdrop-pedicure/dragdrop-pedicure.component';
 import { DragdropCheveuxComponent } from './dragdrop-cheveux/dragdrop-cheveux.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,9 @@ const routes: Routes = [
   },
   {
     path : 'adminLog' , component : AdminLoginComponent
+  },
+  {
+    path: 'stat' , component : StatistiqueComponent
   },
 ];
 
