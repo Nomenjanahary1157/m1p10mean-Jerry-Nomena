@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DeleteComponent } from '../delete/delete.component';
 import { UpdateComponent } from '../update/update.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ServiceService } from '../service.service';
 
 
 
@@ -11,8 +12,11 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './gestion-personnelle.component.html',
   styleUrls: ['./gestion-personnelle.component.css']
 })
+
 export class GestionPersonnelleComponent {
-  constructor(private router: Router,private dialog: MatDialog) {}
+  todo: any[] = [];
+
+  constructor(private router: Router,private dialog: MatDialog,private service: ServiceService) {}
   goToGestionPersonnel() {
     this.router.navigate(['/gestionPersonnel']);
   }
@@ -30,5 +34,16 @@ export class GestionPersonnelleComponent {
 
   removeInputField(index: number): void {
     this.inputFields.splice(index, 1);
+  }
+
+  ngOnInit() {
+    this.loadData();
+  }
+
+  loadData() {
+      this.service.getEmployer().subscribe(data => {
+          this.todo = data;
+          console.table(this.todo)
+      });
   }
 }

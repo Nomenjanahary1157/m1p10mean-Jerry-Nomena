@@ -51,6 +51,9 @@ export class ServiceService {
   getEmployer(): Observable<any> {
     return this.http.get<any>(`${base_url}/Employers`);
   }
+  getService(): Observable<any> {
+    return this.http.get<any>(`${base_url}/services`);
+  }
 
   connexion(username: string, mdp: string) :Observable<any> {
     return this.http.get<any>(`${base_url}/clients/${username}/${mdp}`);

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../delete/delete.component';
 import { UpdateComponent } from '../update/update.component';
+import { ServiceService } from '../service.service';
 
 
 @Component({
@@ -10,8 +11,13 @@ import { UpdateComponent } from '../update/update.component';
   templateUrl: './gestion-service.component.html',
   styleUrls: ['./gestion-service.component.css']
 })
+
 export class GestionServiceComponent {
-  constructor(private router: Router,private dialog: MatDialog) {}
+
+todo: any[] = [];
+
+
+  constructor(private router: Router,private dialog: MatDialog,private service: ServiceService) {}
   goToGestionServicel() {
     this.router.navigate(['/gestionServicel']);
   }
@@ -21,4 +27,19 @@ export class GestionServiceComponent {
   updateModal(): void {
     this.dialog.open(UpdateComponent);
   }
+  ngOnInit() {
+    this.loadData();
+  }
+
+  loadData() {
+      this.service.getService().subscribe(data => {
+          this.todo = data;
+          console.table(this.todo)
+      });
+  }
 }
+
+
+
+
+

@@ -26,6 +26,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdateComponent } from './update/update.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { UpdateComponent } from './update/update.component';
     DragdropCheveuxComponent,
     AdminLoginComponent,
     DeleteComponent,
-    UpdateComponent
+    UpdateComponent,
+    StatistiqueComponent
   ],
   imports: [
     BrowserModule,
@@ -59,10 +62,11 @@ import { UpdateComponent } from './update/update.component';
     DataTablesModule,
     DragDropModule,
     MatDialogModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// export const base_url="https://api-garages.onrender.com/api";
 export const base_url="http://localhost:2024/api";
-

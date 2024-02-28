@@ -20,6 +20,9 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/gestionService">Services</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/stat">Statistique</a>
+          </li>
         </ul>
       </div>
       <a class="admin-link" routerLink="/adminLog" style="color:rgb(168,155,141); text-decoration: none; float:right" >deconnection</a>
@@ -45,19 +48,27 @@
           <table id="service" class="table table-striped">
             <tr>
               <th>DELETE</th>
-              <th>id</th>
+              <th>CATEGORIE</th>
+              <th>DURER/Min</th>
               <th>DESIGNATION</th>
+              <th>PRIX/Ar</th>
+
             </tr>
-            <tr id="">
+            <tr *ngFor="let item of todo" id="">
               <td align="center">
                 <input class="deleteService" type="checkbox" id="servicd" name="deleteService" value="0">
               </td>
-              <td class="result" name="id" id="id" >result.id</td>
-              <td class="result" name="nameService" id="name">result.designation</td>
+              <td class="result" name="nameService" id="name">{{ item.nomOption }}</td>
+              <td class="result" name="nameService" id="name">{{ item.dure }}</td>
+              <td class="result" name="id" id="id" >{{ item.nomService }}</td>
+              <td class="result" name="nameService" id="name">{{ item.prix }}</td>
+
+
               <td align="center">
                 <button class="btn btn-success form-control"  (click)="updateModal()">MODIFIER</button>
               </td>  
             </tr>
+            <br>
             <tr>
               <td align="center">
               </td>
@@ -65,7 +76,10 @@
               </td>
               <td align="center">
               </td>
-              
+              <td align="center">
+              </td>
+              <td align="center">
+              </td>
               <td align="left">
                 <button class="btn btn-danger form-control " (click)="openModal()">SUPPRIMER</button>
               </td>
