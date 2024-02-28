@@ -11,6 +11,20 @@ router.get('/employers', async (req, res) => {
     }
 });
 
+router.get('/employers/:id', async (req, res) => {
+    try {
+        const employers = await Employer.findById(req.params.idEmployer);
+        if (employers) {
+            res.json(employers);
+        } else {
+            res.status(404).json({ message: 'employers non trouvé' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+
 
 module.exports = router;
 

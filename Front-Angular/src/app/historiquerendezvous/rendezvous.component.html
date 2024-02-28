@@ -32,76 +32,44 @@
     <img src="../../assets/img/home.png" class="d-block w-100" alt="..." style="object-fit: cover; height: 700px; border-radius: 5px;">
   </div>
 
-    <div class="container">
-        
-        <h3 class = "title">Vos rendez-vous chez Salon-Blanc</h3>
-        <hr>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">John Doe</h5> <hr>
-                <p class="card-text">Âge: 30</p>
-                <p class="card-text">Nombre de visite : 3</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-9">
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col" class="col">Programme choisis</th>
-                  <th scope="col" class="col">Style choisis</th>
-                  <th scope="col" class="col">Date de réservation</th>
-                  <th scope="col" class="col">heure de réservation</th>
-                  <th scope="col" class="col">Agent</th>
-                  <th scope="col" class="col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                <tr>
-                  <td class="col">Manicure</td>
-                  <td class="col">Manicure</td>
-                  <td class="col">29/01/2024</td>
-                  <td class="col">12:00</td>
-                  <td class="col">Nomena</td>
-                  <td class="col">Terminer</td>
-                </tr>
-
-                <tr>
-                  <td class="col">Pédicure</td>
-                  <td class="col">Pédicure</td>
-                  <td class="col">01/02/2024</td>
-                  <td class="col">10:00</td>
-                  <td class="col">Nomena</td>
-                  <td class="col">En cours</td>
-                </tr>
-
-                <tr>
-                  <td class="col">Coiffure</td>
-                  <td class="col">Coiffure</td>
-                  <td class="col">30/02/2024</td>
-                  <td class="col">18:00</td>
-                  <td class="col">Nomena</td>
-                  <td class="col">Plannifier</td>
-                </tr>
-
-                <tr>
-                  <td class="col">Coiffure</td>
-                  <td class="col">Coiffure</td>
-                  <td class="col">30/02/2024</td>
-                  <td class="col">18:00</td>
-                  <td class="col">Nomena</td>
-                  <td class="col">Plannifier</td>
-                </tr>
-
-              </tbody>
-            </table>
+  <div class="container">
+    <h3 class="title">Vos rendez-vous chez Salon-Blanc</h3>
+    <hr>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let client of clients">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Salon-Blanc</h5>
+            <hr>
+            <a>Nom : {{ client.nom }} </a>
+            <br>
+            <a>Prénom : {{ client.prenom }}</a>
           </div>
         </div>
-        
       </div>
+      <div class="col-md-9">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">ID Client</th>
+              <th scope="col">ID Service Employé</th>
+              <th scope="col">Date de Réservation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rendezVous of rendezVousData; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ rendezVous._id }}</td>
+              <td>{{ rendezVous.idServEmployer }}</td>
+              <td>{{ rendezVous.date | date: 'yyyy-MM-dd' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
       
   <footer class="footer py-4">
     <div class="container text-center">

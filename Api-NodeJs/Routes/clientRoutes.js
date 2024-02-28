@@ -28,7 +28,8 @@ router.get('/clients', async (req, res) => {
 
 router.get('/clients/:id', async (req, res) => {
     try {
-        const client = await Client.findById(req.params.id);
+        const id = req.params.id; 
+        const client = await Client.findOne({ id: id }); 
         if (client) {
             res.json(client);
         } else {
@@ -38,5 +39,6 @@ router.get('/clients/:id', async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
+
 
 module.exports = router;
