@@ -40,5 +40,20 @@ router.get('/clients/:id', async (req, res) => {
     }
 });
 
+router.get('/clients/:nomEmployer/:motdepasse', async (req, res) => {
+    try {
+        const nomEmployer = req.params.nomEmployer; 
+        const motdepasse = req.params.motdepasse; 
+        const client = await Client.findOne({ username : nomEmployer, mdp : motdepasse}); 
+        if (client) {
+            res.json(client);
+        } else {
+            res.status(404).json({ message: 'Client non trouvé' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 
 module.exports = router;

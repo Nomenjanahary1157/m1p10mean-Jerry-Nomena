@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,11 @@ import { NgxSpinnerService } from "ngx-spinner";
 
 export class InscriptionComponent {
 
-  constructor(public router: Router,private spinner: NgxSpinnerService) {}
+  constructor(public router: Router,private service: ServiceService) {}
   form : any = {
-    email : null,
+    username : null,
+    nom : null,
+    prenom : null,
     password : null,
     password2 : null,
   }
@@ -23,18 +26,15 @@ export class InscriptionComponent {
     this.router.navigate(['/inscription']);
   }
   inscription() {
-    this.spinner.show();
-    const {email, password, password2} = this.form;
-    if(this.form =! null && password == password2) {
-    console.log(email);
+    const { username, nom, prenom, password, password2 } = this.form;
+    console.log(username);
+    console.log(nom);
+    console.log(prenom);
     console.log(password);
     console.log(password2);
-    setTimeout(() => {
-      this.spinner.hide();
-      this.router.navigateByUrl('/login');
-      
-    }, 2000);
-    console.log("ok");
+    if (password === password2) {
+      this.service.inscription(nom, prenom,username, password);
+      this.router.navigate(['/login']);
     }
   }
 

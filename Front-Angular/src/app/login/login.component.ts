@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ServiceService } from '../service.service';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-article-list',
@@ -8,7 +10,9 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, private spinner: NgxSpinnerService) {}
+  user: any;
+  isConnected: boolean = false;
+  constructor(private router: Router, private service: ServiceService) {}
   form : any = {
     email : null,
     password : null,
@@ -20,17 +24,21 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   login() {
-    this.spinner.show();
     const {email, password} = this.form;
-    if(this.form =! null) {
     console.log(email);
     console.log(password);
-    setTimeout(() => {
-      this.spinner.hide();
-      this.router.navigateByUrl('');
-      
-    }, 2000);
-    console.log("ok");
+    if(this.form =! null) {
+      this.service.connexion(email,password).subscribe(data => {
+      if(data =! null) {
+        this.user = data;
+        this.isConnected = true;
+        this.router.navigate(['/']);
+      }
+      if(data == null) {
+        this.isConnected = false;
+        this.router.navigate(['/login']);
+      }
+      } );
     }
   }
 }

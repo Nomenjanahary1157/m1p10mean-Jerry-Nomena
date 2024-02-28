@@ -11,6 +11,9 @@ const httpOptions = {
 })
 
 export class ServiceService {
+  isLoggedIn: boolean = false;
+  user: any;
+
   constructor(private http: HttpClient, public router:Router) { }
 
   getRendezVous(): Observable<any[]> {
@@ -47,6 +50,25 @@ export class ServiceService {
 
   getEmployer(): Observable<any> {
     return this.http.get<any>(`${base_url}/Employers`);
+  }
+
+  connexion(username: string, mdp: string) :Observable<any> {
+    return this.http.get<any>(`${base_url}/clients/${username}/${mdp}`);
+  }
+
+  login(user: any) {
+    this.isLoggedIn = true;
+    this.user = user;
+  }
+
+  logout() {
+    this.isLoggedIn = false;
+    this.user = null;
+  }
+
+  inscription(nom: string, prenom: string, username: string, mdp: string): Observable<any> {
+    const clientData = { nom, prenom, username, mdp };
+    return this.http.post<any>(`${base_url}/clients`, clientData);
   }
 
 }
