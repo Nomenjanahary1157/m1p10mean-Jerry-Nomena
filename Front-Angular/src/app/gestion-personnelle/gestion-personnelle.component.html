@@ -20,6 +20,9 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/gestionService">Services</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/stat">Statistique</a>
+          </li>
         </ul>
       </div>
       <a class="admin-link" routerLink="/adminLog" style="color:rgb(168,155,141); text-decoration: none; float:right" >deconnection</a>
@@ -71,23 +74,25 @@
           <table id="profil" class="table table-striped">
             <tr>
               <th>DELETE</th>
-              <th>id</th>
               <th>Nom</th>
-              <th>Username</th>
+              <th>Prenom</th>
               <th>Salaire</th>
+              <th>Date d'embauche</th>
+
             </tr>
-            <tr id="">
+            <tr  *ngFor="let item of todo" id="" >
               <td align="center">
                 <input class="" type="checkbox" id="profil" name="deleteProfil" value="0">
               </td>
-              <td class="result" name="idProfil" id="id" >result.id</td>
-              <td class="result" name="nameProfil" id="name">result.name</td>
-              <td class="result" name="nameIdentifant" id="identifiant">result.identifiant</td>
-              <td class="result" name="nameRole" id="role">result.salaire</td>
+              <td class="result" name="idProfil" id="id" >{{item.nomEmployer}}</td>
+              <td class="result" name="nameProfil" id="name">{{item.prenomEmployer}}</td>
+              <td class="result" name="nameIdentifant" id="identifiant">{{item.salaire}}</td>
+              <td class="result" name="nameRole" id="role">{{item.dateEmbauche}}</td>
               <td align="center">
                 <button class="btn btn-success form-control"  (click)="updateModal()">MODIFIER</button>
               </td>  
             </tr>
+            <br>
             <tr>
               <td align="center">
               </td>
