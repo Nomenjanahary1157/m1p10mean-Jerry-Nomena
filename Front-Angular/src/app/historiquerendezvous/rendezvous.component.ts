@@ -27,7 +27,6 @@ export class RendezvousComponent implements OnInit {
           console.log(rdv._id);
           this.service.getClientbyID(rdv.idClient).subscribe(client => {
             this.clients.push(client);
-
           });
           this.service.getServEmployerbyID(rdv.idServEmployer).subscribe(servemploye => {
 

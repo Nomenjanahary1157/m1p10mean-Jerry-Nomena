@@ -33,4 +33,20 @@ export class ServiceService {
     return this.http.get<any>(`${base_url}/services/${idservice}`);
   }
 
+  getCoiffure(): Observable<any> {
+    return this.http.get<any>(`${base_url}/servicesCoiffure`);
+  }
+
+  getManucure(): Observable<any> {
+    return this.http.get<any>(`${base_url}/servicesManicure`);
+  }
+
+  getPeducure(): Observable<any> {
+    return this.http.get<any>(`${base_url}/servicesPedicure`);
+  }
+
+  getEmployer(): Observable<any> {
+    return this.http.get<any>(`${base_url}/Employers`);
+  }
+
 }

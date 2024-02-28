@@ -14,9 +14,13 @@ const serviceSchema = new mongoose.Schema({
     required: true
   },
   dure: {
+    type: Number,
+    required: true
+  },
+  nomOption :  {
     type: String,
     required: true
-  }
+  },
 });
 
 module.exports = mongoose.model("Service", serviceSchema, "Service");

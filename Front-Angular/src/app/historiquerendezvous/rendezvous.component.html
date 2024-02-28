@@ -36,7 +36,7 @@
     <h3 class="title">Vos rendez-vous chez Salon-Blanc</h3>
     <hr>
     <div class="row">
-      <div class="col-md-3" *ngFor="let client of clients">
+      <div class="col-md-2" *ngFor="let client of clients">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Salon-Blanc</h5>
@@ -47,23 +47,27 @@
           </div>
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-10">
         <table class="table">
           <thead class="thead-dark" >
             <tr style="text-align: center;">
               <th scope="col">Service</th>
+              <th scope="col">Option</th>
               <th scope="col">Employer</th>
               <th scope="col">Date de Réservation</th>
               <th scope="col">Heure de reservation</th>
-              <th scope="col">Prix</th>
+              <th scope="col">Durée / heure</th>
+              <th scope="col">Prix / Ariary</th>
             </tr>
           </thead>
           <tr *ngFor="let rendezVous of rendezVousData; let i = index" style="text-align: center;">
             <td>{{ services[i].nomService }}</td> 
+            <td>{{ services[i].nomOption }}</td> 
             <td>{{ employes[i]?.nomEmployer }} {{ employes[i]?.prenomEmployer }}</td> 
             <td>{{ rendezVous.date | date: 'yyyy-MM-dd' }}</td>
             <td>{{ rendezVous.date | date: 'hh:mm' }}</td>
-            <td>{{ services[i].prix}} Ariary</td>
+            <td>{{ services[i].dure/60}} </td>
+            <td>{{ services[i].prix}} </td>
         </tr>
         </table>
       </div>

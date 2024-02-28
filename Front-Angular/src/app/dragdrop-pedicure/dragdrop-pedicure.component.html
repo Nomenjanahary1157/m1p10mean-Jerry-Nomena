@@ -46,7 +46,9 @@
                 [cdkDropListConnectedTo]="[doneList]"
                 class="drag-list"
                 (cdkDropListDropped)="drop($event)">
-                <div *ngFor="let item of todo; let i = index" class="drag-box" cdkDrag>{{item}}</div>
+                <div *ngFor="let item of todo" class="drag-box" cdkDrag>
+                  {{ item.nomOption }} - {{ item.prix }} Ariary
+                </div>
             </div>
         </div>
         <div class="drag-container">
@@ -58,7 +60,9 @@
                 [cdkDropListConnectedTo]="[perList]"
                 class="drag-list"
                 (cdkDropListDropped)="drop($event)">
-                <div *ngFor="let item of personListe; let i = index" class="drag-box" cdkDrag>{{item}}</div>
+                <div *ngFor="let item of personListe" class="drag-box" cdkDrag>
+                  {{ item.nomEmployer }} {{ item.prenomEmployer }} 
+                </div>
             </div>
         </div>
 
@@ -71,7 +75,9 @@
                 [cdkDropListConnectedTo]="[todoList]"
                 class="drag-list"
                 (cdkDropListDropped)="drop($event)">
-                <div *ngFor="let item of done; let i = index" class="drag-box" cdkDrag>{{item}}</div>
+                <div *ngFor="let item of done; let i = index" class="drag-box" cdkDrag>
+                  {{ item.nomOption }} - {{ item.prix }} Ariary
+              </div>
             </div>
             <h5 style="text-align: center;">L'Agent qui vous prendra en charge</h5>
             <div
@@ -81,7 +87,9 @@
                 [cdkDropListConnectedTo]="[persList]"
                 class="drag-list"
                 (cdkDropListDropped)="drop($event)">
-                <div *ngFor="let item of personnel; let i = index" class="drag-box" cdkDrag>{{item}}</div>
+                <div *ngFor="let item of personnel" class="drag-box" cdkDrag>
+                  {{ item.nomEmployer }} {{ item.prenomEmployer }} 
+                </div>
             </div>
 
             <label>Date de réservation</label>

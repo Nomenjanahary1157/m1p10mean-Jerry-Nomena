@@ -26,4 +26,43 @@ router.get('/services/:id', async (req, res) => {
 });
 
 
+router.get('/servicesManicure', async (req, res) => {
+    try {
+        const services = await Service.find({ nomService : "Manicure"}); 
+        if (services) {
+            res.json(services);
+        } else {
+            res.status(404).json({ message: 'services non trouvé' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+router.get('/servicesPedicure', async (req, res) => {
+    try {
+        const services = await Service.find({nomService : "pédicure" }); 
+        if (services) {
+            res.json(services);
+        } else {
+            res.status(404).json({ message: 'services non trouvé' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+router.get('/servicesCoiffure', async (req, res) => {
+    try {
+        const services = await Service.find({ nomService: "coiffure" }); 
+        if (services) {
+            res.json(services);
+        } else {
+            res.status(404).json({ message: 'services non trouvé' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;

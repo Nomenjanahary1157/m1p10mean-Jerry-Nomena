@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-dragdrop-cheveux',
@@ -9,26 +10,30 @@ import { Router } from '@angular/router';
 })
 export class DragdropCheveuxComponent {
   isLoading: boolean = false;
+  todo: any[] = [];
+  done: any[] = [];
+  personListe: any[] = [];
+  personnel: any[] = [];
 
-  constructor(private router: Router) {}
-    
-    todo: string[] = [
-        'Carré plongeant',
-        'Tresse Pour Cheveux',
-        'Coupe courte avec frange',
-        'Coupe courte ondulée',
-        'Coupe dégradée cheveux longs',
-        'Coupe avec Natte',
-        'Cheveux bouclés',
-        'Cheveux frisés'
-    ];
+  constructor(private router: Router, private service: ServiceService) {}
 
-    done: string[] = [];
+  ngOnInit() {
+      this.loadData();
+      this.loadUser();
+  }
 
-    personListe: string[] = ['Jeanne','Jean'];
+  loadData() {
+      this.service.getCoiffure().subscribe(data => {
+          this.todo = data;
+      });
+  }
 
-    personnel: string[] = [];
-
+  loadUser() {
+      this.service.getEmployer().subscribe(data => {
+          this.personListe = data;
+          console.table(this.personListe)
+      });
+  }
     reservationDate: string = '';
     reservationTime: string = '';
 

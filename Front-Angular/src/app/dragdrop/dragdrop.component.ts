@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-dragdrop',
@@ -9,19 +10,30 @@ import { Router } from '@angular/router';
 })
 export class DragdropComponent {
   isLoading: boolean = false;
+  todo: any[] = [];
+  done: any[] = [];
+  personListe: any[] = [];
+  personnel: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: ServiceService) {}
 
-  todo: string[] = [
-    'La manucure classique',
-    'La manucure classique express',
-    'La manucure brésilienne',
-    'La manucure japonaise',
-    'La manucure russe'
-  ];
-  done: string[] = [];
-  personListe: string[] = ['Jeanne','Jean'];
-  personnel: string[] = [];
+  ngOnInit() {
+      this.loadData();
+      this.loadUser();
+  }
+
+  loadData() {
+      this.service.getManucure().subscribe(data => {
+          this.todo = data;
+      });
+  }
+
+  loadUser() {
+      this.service.getEmployer().subscribe(data => {
+          this.personListe = data;
+          console.table(this.personListe)
+      });
+  }
   reservationDate: string = '';
   reservationTime: string = '';
 

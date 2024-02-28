@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
     selector: 'app-dragdrop',
@@ -8,29 +9,37 @@ import { Router } from '@angular/router';
     styleUrls: ['./dragdrop-pedicure.component.css']
 })
 export class DragdropPedicureComponent {
-  isLoading: boolean = false;
+    isLoading: boolean = false;
+    todo: any[] = [];
+    done: any[] = [];
+    personListe: any[] = [];
+    personnel: any[] = [];
 
-  constructor(private router: Router) {}
+    constructor(private router: Router, private service: ServiceService) {}
+
+    ngOnInit() {
+        this.loadData();
+        this.loadUser();
+    }
+
+    loadData() {
+        this.service.getPeducure().subscribe(data => {
+            this.todo = data;
+        });
+    }
+
+    loadUser() {
+        this.service.getEmployer().subscribe(data => {
+            this.personListe = data;
+            console.table(this.personListe)
+        });
+    }
+
     
-    todo: string[] = [
-        'BLANC CRAIE',
-        'RENCH PÉDICURE',
-        'ONGLES ROUGES.',
-        'VERT ACIDE',
-        'JAUNE FLUO',
-        'MAINS ET PIEDS DÉPAREILLÉS'
-    ];
-
-    done: string[] = [];
-
-    personListe: string[] = ['Jeanne','Jean'];
-
-    personnel: string[] = [];
-
     reservationDate: string = '';
     reservationTime: string = '';
 
-    drop(event: CdkDragDrop<string[]>) {
+    drop(event: CdkDragDrop<any[]>) {
         if (event.previousContainer === event.container) {
             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
         } else {
@@ -44,7 +53,7 @@ export class DragdropPedicureComponent {
     }
 
     submitReservation() {
-    this.isLoading = true; 
+        this.isLoading = true; 
 
         const date = this.reservationDate;
         const time = this.reservationTime;
@@ -62,4 +71,3 @@ export class DragdropPedicureComponent {
           }, 2000); 
     }
 }
-
