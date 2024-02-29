@@ -15,13 +15,14 @@ import { ServiceService } from '../service.service';
 export class GestionServiceComponent {
 
 todo: any[] = [];
-
+datas : any;
 selectedRows: any[] = []; 
 
   constructor(private router: Router,private dialog: MatDialog,private service: ServiceService) {}
   goToGestionServicel() {
     this.router.navigate(['/gestionServicel']);
   }
+
   openModal(): void {
     this.dialog.open(DeleteComponent, {
       data: { selectedRows: this.selectedRows }
@@ -53,7 +54,7 @@ selectedRows: any[] = [];
   loadData() {
       this.service.getService().subscribe(data => {
           this.todo = data;
-          // console.table(this.todo)
+          console.table(this.todo)
       });
   }
 

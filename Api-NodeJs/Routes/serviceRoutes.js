@@ -84,4 +84,21 @@ router.get('/servicesCoiffure', async (req, res) => {
     }
 });
 
+router.delete('/service/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const deletedService = await Service.findByIdAndDelete(id);
+
+        if (!deletedService) {
+            return res.status(404).json({ message: "Service non trouvé." });
+        }
+
+        return res.status(200).json({ message: "Service supprimé avec succès." });
+    } catch (error) {
+        console.error("Erreur lors de la suppression du service :", error);
+        return res.status(500).json({ message: "Erreur interne du serveur." });
+    }
+});
+
 module.exports = router;

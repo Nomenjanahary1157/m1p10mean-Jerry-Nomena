@@ -161,4 +161,9 @@ export class ServiceService {
     const serviceData = {idService, nomService, prix, dure, nomOption };
     return this.http.post<any>(`${base_url}/services`, serviceData);
   }
+
+  deleteServiceById(serviceId: number): Observable<any> {
+    return this.http.delete<any>(`${base_url}/service/${serviceId}`);
+  }
+
 }
