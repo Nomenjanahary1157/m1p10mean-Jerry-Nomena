@@ -60,16 +60,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let rendezVous of rendezVousData; let i = index" style="text-align: center;">
-                        <td>{{ services[i]?.nomService }}</td> 
-                        <td>{{ services[i]?.nomOption }}</td> 
-                        <td>{{ employes[i]?.nomEmployer }} {{ employes[i]?.prenomEmployer }}</td> 
-                        <td>{{ rendezVousDate | date: 'yyyy-MM-dd' }}</td>
-                        <td>{{ rendezVousDate | date: 'HH:mm' }}</td>
-                        <td>{{ services[i]?.dure/60}} </td>
-                        <td>{{ services[i]?.prix}} </td>
-                    </tr>
-                </tbody>
+                  <tr *ngFor="let rendezVous of rendezVousData; let i = index" style="text-align: center;">
+                      <ng-container *ngIf="services[i] && employes[i]">
+                          <td>{{ services[i]?.nomService }}</td> 
+                          <td>{{ services[i]?.nomOption }}</td> 
+                          <td>{{ employes[i]?.nomEmployer }} {{ employes[i]?.prenomEmployer }}</td> 
+                      </ng-container>
+                      <ng-container *ngIf="rendezVousDate">
+                          <td>{{ rendezVousDate | date: 'yyyy-MM-dd' }}</td>
+                          <td>{{ rendezVousDate | date: 'HH:mm' }}</td>
+                      </ng-container>
+                      <ng-container *ngIf="services[i]">
+                          <td>{{ services[i]?.dure/60}}</td>
+                          <td>{{ services[i]?.prix}}</td>
+                      </ng-container>
+                  </tr>
+              </tbody>
+              
             </table>
         </div>
     </div>

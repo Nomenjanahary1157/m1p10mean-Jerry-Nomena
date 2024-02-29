@@ -18,6 +18,7 @@ export class AcceuilComponent implements OnInit {
   showPromotionAlert: boolean = false;
   userconnected : any;
   clientAsNumber: number | undefined;
+  argentClient: number = 0;
 
   
   constructor(private router: Router, private service: ServiceService) {
@@ -35,6 +36,7 @@ export class AcceuilComponent implements OnInit {
         }, 15000);
     }, 5000);
     this.userconnected = this.service.isConnected;
+    this.argentClient = this.service.getClientArgent();
     console.table(this.userconnected);
   }
 

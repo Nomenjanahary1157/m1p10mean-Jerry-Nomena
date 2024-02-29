@@ -18,9 +18,8 @@ export class ServiceService {
     this.isConnected$ = this.isConnectedSubject.asObservable();
   }
 
-  effectuerOperation(): void {
-    const argentDuClient = this.isConnected.client.argent;
-    console.log('Montant d\'argent du client:', argentDuClient);
+  getClientArgent(): number {
+    return this.user?.argent || 0;
   }
 
   set isConnected(data: { isConnected: boolean, client: any }) {
