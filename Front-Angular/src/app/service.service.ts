@@ -78,6 +78,8 @@ export class ServiceService {
     return this.http.get<any>(`${base_url}/servElatest`);
   }
 
+  
+
   insertServEmployer(idServEmployer: number, idService: number, idEmployer: number): Observable<any> {
     const body = {
       idServEmployer: idServEmployer,
@@ -145,10 +147,18 @@ export class ServiceService {
       );
   }
   
-  
-
   inscription(id: number, nom: string, prenom: string, username: string, mdp: string, argent: number): Observable<any> {
     const clientData = { id, nom, prenom, username, mdp, argent };
     return this.http.post<any>(`${base_url}/clients`, clientData);
+  }
+
+  addPers(idEmployer:number, nomEmployer: string, prenomEmployer: string, salaire: number, dateEmbauche: Date): Observable<any> {
+    const employerData = {idEmployer, nomEmployer, prenomEmployer, salaire, dateEmbauche };
+    return this.http.post<any>(`${base_url}/employers`, employerData);
+  }
+
+  addService(idService:number, nomService: string, prix: number, dure: number, nomOption: Date): Observable<any> {
+    const serviceData = {idService, nomService, prix, dure, nomOption };
+    return this.http.post<any>(`${base_url}/services`, serviceData);
   }
 }
