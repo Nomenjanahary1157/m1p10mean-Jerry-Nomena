@@ -26,6 +26,7 @@ export class InscriptionComponent {
     this.router.navigate(['/inscription']);
   }
   inscription() {
+    const id = 4;
     const { username, nom, prenom, password, password2 } = this.form;
     console.log(username);
     console.log(nom);
@@ -33,9 +34,16 @@ export class InscriptionComponent {
     console.log(password);
     console.log(password2);
     if (password === password2) {
-      this.service.inscription(nom, prenom,username, password);
-      this.router.navigate(['/login']);
+      this.service.inscription(id, nom, prenom, username, password).subscribe(
+        (response) => {
+          console.log(response); 
+          this.router.navigate(['/login']); 
+        },
+        (error) => {
+          console.error(error); 
+          this.router.navigate(['/inscription']); 
+        }
+      );
     }
   }
-
 }

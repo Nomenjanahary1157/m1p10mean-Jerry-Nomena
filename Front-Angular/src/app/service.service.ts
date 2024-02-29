@@ -69,8 +69,8 @@ export class ServiceService {
     this.user = null;
   }
 
-  inscription(nom: string, prenom: string, username: string, mdp: string): Observable<any> {
-    const clientData = { nom, prenom, username, mdp };
+  inscription(id:number, nom: string, prenom: string, username: string, mdp: string): Observable<any> {
+    const clientData = {id, nom, prenom, username, mdp };
     return this.http.post<any>(`${base_url}/clients`, clientData);
   }
 
