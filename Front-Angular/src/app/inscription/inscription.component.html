@@ -44,7 +44,7 @@
               </div>
               <div class="form-group">
                 <label class="insertion" for="email">Prénom</label>
-                <input type="email" class="form-control"  placeholder="Enter email" name="prenom" [(ngModel)]="form.prenom"/>
+                <input type="email" class="form-control"  placeholder="Enter Prénom" name="prenom" [(ngModel)]="form.prenom"/>
               </div>
               <div class="form-group">
                 <label class="insertion" for="password">Mot de passe</label>
@@ -53,6 +53,10 @@
               <div class="form-group">
                 <label class="insertion" for="password">Mot de passe </label>
                 <input type="password" class="form-control"  placeholder="Ré-écris ton mot de passe" name="password2" [(ngModel)]="form.password2"/> 
+              </div>
+              <div class="form-group">
+                <label class="insertion" for="password">Argent</label>
+                <input type="number" class="form-control"  placeholder="Combien voulez vous déposer" name="argent" [(ngModel)]="form.argent"/> 
               </div>
               <button type="button" class="btn btn-primary btn-block" (click)="inscription()">Inscription</button>
             </form>

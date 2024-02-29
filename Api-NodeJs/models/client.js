@@ -22,6 +22,10 @@ const clientSchema = new mongoose.Schema({
   mdp: {
     type: String,
     required: true
+  },
+  argent: {
+    type: Number,
+    required: true
   }
 });
 

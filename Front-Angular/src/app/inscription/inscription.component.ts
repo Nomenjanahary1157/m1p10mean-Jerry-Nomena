@@ -26,15 +26,16 @@ export class InscriptionComponent {
     this.router.navigate(['/inscription']);
   }
   inscription() {
-    const id = 4;
-    const { username, nom, prenom, password, password2 } = this.form;
+    const id = 5;
+    const { username, nom, prenom, password, password2, argent } = this.form;
     console.log(username);
     console.log(nom);
     console.log(prenom);
     console.log(password);
     console.log(password2);
+    console.log(argent);
     if (password === password2) {
-      this.service.inscription(id, nom, prenom, username, password).subscribe(
+      this.service.inscription(id, nom, prenom, username, password, argent).subscribe(
         (response) => {
           console.log(response); 
           this.router.navigate(['/login']); 

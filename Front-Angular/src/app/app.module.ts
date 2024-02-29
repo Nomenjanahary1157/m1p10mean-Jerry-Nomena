@@ -68,5 +68,4 @@ import { NgChartsModule } from 'ng2-charts';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-// export const base_url="https://api-garages.onrender.com/api";
 export const base_url="http://localhost:2024/api";

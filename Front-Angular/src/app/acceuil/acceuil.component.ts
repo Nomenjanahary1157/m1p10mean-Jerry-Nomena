@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-acceuil',
@@ -15,8 +16,9 @@ export class AcceuilComponent implements OnInit {
   showRDVAlert: boolean = false;
   showNotFoundAlert: boolean = false;
   showPromotionAlert: boolean = false;
+  userconnected : any;
   
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: ServiceService) {}
 
   ngOnInit() {
     this.showRDVAlert = true;
@@ -27,8 +29,16 @@ export class AcceuilComponent implements OnInit {
             this.showPromotionAlert = false;
         }, 15000);
     }, 5000);
+    this.userconnected = this.service.isConnected;
+    console.table(this.userconnected);
   }
 
+  logout() {
+    this.service.logout();
+    this.router.navigate(['/login']);
+  }
+
+  
   rechercher() {
     const { recherche } = this.form;
 
@@ -52,55 +62,51 @@ export class AcceuilComponent implements OnInit {
   }
 
   rechercherManucure(recherche: string): boolean {
-    const manucureServices: string[] = [
-      'La manucure classique',
-      'La manucure classique express',
-      'La manucure brésilienne',
-      'La manucure japonaise',
-      'La manucure russe'
-    ];
+      let manucureServices: string[] = [];
+      let result: boolean = false;
+      this.service.getManucure().subscribe(data => {
+      manucureServices = data.map((item: { nomOption: any; }) => item.nomOption);
 
-    if (manucureServices.includes(recherche)) {
-      this.router.navigateByUrl('/dragDrop');
-      return true;
-    }
-    return false;
+      if (manucureServices.includes(recherche) || recherche == 'manucure' || recherche == 'Manucure') {
+          this.router.navigateByUrl('/dragDrop');
+          result = true;
+      } else {
+        result = false;
+      }
+    });
+  return result;
   }
 
   rechercherPedicure(recherche: string): boolean {
-    const pedicureServices: string[] = [
-      'BLANC CRAIE',
-      'RENCH PÉDICURE',
-      'ONGLES ROUGES.',
-      'VERT ACIDE',
-      'JAUNE FLUO',
-      'MAINS ET PIEDS DÉPAREILLÉS'
-    ];
+    let pedicureServices: string[] = [];
+      let result: boolean = false;
+      this.service.getPeducure().subscribe(data => {
+        pedicureServices = data.map((item: { nomOption: any; }) => item.nomOption);
 
-    if (pedicureServices.includes(recherche)) {
-      this.router.navigateByUrl('/dragDropPeducure');
-      return true;
-    }
-    return false;
+      if (pedicureServices.includes(recherche) || recherche == 'péducure' || recherche == 'Péducure' || recherche == 'Peducure' || recherche == 'peducure') {
+          this.router.navigateByUrl('/dragDropPeducure');
+          result = true;
+      } else {
+        result = false;
+      }
+    });
+  return result;
   }
 
   rechercherCheveux(recherche: string): boolean {
-    const cheveuxServices: string[] = [
-      'Carré plongeant',
-      'Tresse Pour Cheveux',
-      'Coupe courte avec frange',
-      'Coupe courte ondulée',
-      'Coupe dégradée cheveux longs',
-      'Coupe avec Natte',
-      'Cheveux bouclés',
-      'Cheveux frisés'
-    ];
+    let cheveuxServices: string[] = [];
+      let result: boolean = false;
+      this.service.getCoiffure().subscribe(data => {
+        cheveuxServices = data.map((item: { nomOption: any; }) => item.nomOption);
 
-    if (cheveuxServices.includes(recherche)) {
-      this.router.navigateByUrl('/dragDropCheveux');
-      return true;
-    }
-    return false;
+      if (cheveuxServices.includes(recherche) || recherche == 'coiffure' || recherche == 'Coiffure' || recherche == 'Cheveux' || recherche == 'cheveux') {
+          this.router.navigateByUrl('/dragDropCheveux');
+          result = true;
+      } else {
+        result = false;
+      }
+    });
+  return result;
   }
 
 }

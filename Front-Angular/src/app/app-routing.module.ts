@@ -16,6 +16,9 @@ import { StatistiqueComponent } from './statistique/statistique.component';
 
 const routes: Routes = [
   {
+    path : 'login' , component : LoginComponent
+  },
+  {
      path : '' , component : AcceuilComponent
   },
   {
@@ -29,9 +32,6 @@ const routes: Routes = [
   },
   {
     path : 'inscription' , component : InscriptionComponent
-  },
-  {
-    path : 'login' , component : LoginComponent
   },
   {
     path : 'rendezvousEmployer' , component : RendezvousEmployerComponent
@@ -62,6 +62,4 @@ const routes: Routes = [
 
 
 export class AppRoutingModule {
-
-
  }

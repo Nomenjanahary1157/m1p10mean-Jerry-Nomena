@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Client = require('../models/client');
 
+
 router.post('/clients', async (req, res) => {
-    const {id, nom, prenom, username, mdp } = req.body;
+    const {id, nom, prenom, username, mdp, argent } = req.body;
 
     try {
-        if (!id ||!nom || !prenom || !username || !mdp) {
+        if (!id ||!nom || !prenom || !username || !mdp|| !argent) {
             return res.status(400).json({ success: false, message: 'Tous les champs sont obligatoires' });
         }
 
@@ -20,7 +21,8 @@ router.post('/clients', async (req, res) => {
             nom: nom,
             prenom: prenom,
             username: username,
-            mdp: mdp
+            mdp: mdp,
+            argent: argent
         });
 
         await newClient.save();
@@ -39,10 +41,11 @@ router.get('/clients', async (req, res) => {
     }
 });
 
+
 router.get('/clients/:id', async (req, res) => {
     try {
         const id = req.params.id; 
-        const client = await Client.findOne({ _id: id }); 
+        const client = await Client.findOne({ id: id }); 
         if (client) {
             res.json(client);
         } else {
@@ -52,6 +55,8 @@ router.get('/clients/:id', async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
+
+
 
 router.get('/clients/:nomEmployer/:motdepasse', async (req, res) => {
     try {

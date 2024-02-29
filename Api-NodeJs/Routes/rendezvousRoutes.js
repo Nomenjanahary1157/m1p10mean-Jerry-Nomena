@@ -12,4 +12,18 @@ router.get('/rdvs', async (req, res) => {
     }
 });
 
+router.get('/rdvs/:id', async (req, res) => {
+    try {
+        const id = req.params.id; 
+        const rdvs = await RDV.find({ idClient: id }); 
+        if (rdvs.length > 0) {
+            res.json(rdvs);
+        } else {
+            res.status(404).json({ message: 'Aucun rendez-vous trouvé' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;
