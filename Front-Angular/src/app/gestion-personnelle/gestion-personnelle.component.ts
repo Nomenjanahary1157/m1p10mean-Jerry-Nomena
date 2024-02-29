@@ -86,7 +86,7 @@ export class GestionPersonnelleComponent {
     // console.log(dateEmbauche);
 
 
-    if (nomEmployer !== null && prenomEmployer !== null && salaire !== null && dateEmbauche !== null) {
+    if (nomEmployer != null && prenomEmployer != null && salaire != null && dateEmbauche != null) {
       // console.log("mitovy");
       this.service.addPers(idEmployer,nomEmployer, prenomEmployer, salaire, dateEmbauche).subscribe(
         (response) => {

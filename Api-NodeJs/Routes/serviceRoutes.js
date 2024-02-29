@@ -5,17 +5,21 @@ const Service = require('../models/service');
 router.post('/services', async (req, res) => {
     try {
         const service = new Service({
-            nomservice: req.body.nomservice,
+            idService: req.body.idService,
+            nomService: req.body.nomService,
             prix: req.body.prix,
             dure: req.body.dure,
             nomOption: req.body.nomOption
         });
-        const newservice = await service.save();
-        res.status(201).json(newservice);
+        
+        const newService = await service.save();
+        
+        res.status(201).json(newService);
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
 });
+
 
 router.get('/services', async (req, res) => {
     try {
