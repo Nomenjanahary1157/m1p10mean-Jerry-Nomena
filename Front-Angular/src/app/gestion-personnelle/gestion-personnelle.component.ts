@@ -19,7 +19,17 @@ export class GestionPersonnelleComponent {
 
   selectedRows: any[] = []; 
 
+  
+
   constructor(private router: Router,private dialog: MatDialog,private service: ServiceService) {}
+
+  form : any = {
+    nomEmployer : null,
+    prenomEmployer : null,
+    salaire : null,
+    dateEmbauche : null,
+  }
+
   goToGestionPersonnel() {
     this.router.navigate(['/gestionPersonnel']);
   }
@@ -71,33 +81,23 @@ export class GestionPersonnelleComponent {
     });
   }
 
-  form : any = {
-    nomEmployer : null,
-    prenomEmployer : null,
-    salaire : null,
-    dateEmbauche : null,
-  }
   add() {
-    const idEmployer = 4;
-    const { nomEmployer, prenomEmployer, salaire, dateEmbauche} = this.form;
-    // console.log(nomEmployer);
-    // console.log(prenomEmployer);
-    // console.log(salaire);
-    // console.log(dateEmbauche);
-
-
-    if (nomEmployer != null && prenomEmployer != null && salaire != null && dateEmbauche != null) {
-      // console.log("mitovy");
-      this.service.addPers(idEmployer,nomEmployer, prenomEmployer, salaire, dateEmbauche).subscribe(
-        (response) => {
-          console.log(response); 
-          this.router.navigate(['/gestionPers']); 
-        },
-        (error) => {
-          console.error(error); 
-          this.router.navigate(['/gestionPers']); 
-        }
-      );
-    }
+    const { nomEmployer, prenomEmployer, salaire, dateEmbauche } = this.form;
+  
+    const idEmployer = 5;
+  
+    this.service.addEmployer(idEmployer, nomEmployer, prenomEmployer, salaire, dateEmbauche).subscribe(
+      (response) => {
+        console.log(response); 
+        this.router.navigate(['/gestionPers']); 
+      },
+      (error) => {
+        console.error(error); 
+        this.router.navigate(['/gestionPers']); 
+      }
+    );
   }
+  
+  
+  
 }

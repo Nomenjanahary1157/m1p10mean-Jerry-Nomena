@@ -20,7 +20,6 @@ export class InscriptionComponent {
     password2 : null,
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
   goToInscription() {
     this.router.navigate(['/inscription']);

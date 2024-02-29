@@ -152,9 +152,12 @@ export class ServiceService {
     return this.http.post<any>(`${base_url}/clients`, clientData);
   }
 
-  addPers(idEmployer:number, nomEmployer: string, prenomEmployer: string, salaire: number, dateEmbauche: Date): Observable<any> {
-    const employerData = {idEmployer, nomEmployer, prenomEmployer, salaire, dateEmbauche };
-    return this.http.post<any>(`${base_url}/employers`, employerData);
+  addEmployer(idEmployer: number, nomEmployer: string, prenomEmployer: string, salaire: number, dateEmbauche: Date): Observable<any> {
+    const employerData = { idEmployer, nomEmployer, prenomEmployer, salaire, dateEmbauche };
+    return this.http.post<any>(`${base_url}/employers`, employerData)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   addService(idService:number, nomService: string, prix: number, dure: number, nomOption: Date): Observable<any> {

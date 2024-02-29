@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const employerSchema = new mongoose.Schema({
   idEmployer: {
     type: Number,
-    required: true,
-    unique: true
+    required: false
   },
   nomEmployer: {
     type: String,
@@ -24,7 +23,7 @@ const employerSchema = new mongoose.Schema({
   },
   dateRenvoie: {
     type: Date,
-    required: true
+    required: false
   }
 });
 
