@@ -61,13 +61,13 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let rendezVous of rendezVousData; let i = index" style="text-align: center;">
-                        <td>{{ services[0]?.nomService }}</td> 
-                        <td>{{ services[0]?.nomOption }}</td> 
-                        <td>{{ employes[0]?.nomEmployer }} {{ employes[0]?.prenomEmployer }}</td> 
+                        <td>{{ services[i]?.nomService }}</td> 
+                        <td>{{ services[i]?.nomOption }}</td> 
+                        <td>{{ employes[i]?.nomEmployer }} {{ employes[i]?.prenomEmployer }}</td> 
                         <td>{{ rendezVousDate | date: 'yyyy-MM-dd' }}</td>
                         <td>{{ rendezVousDate | date: 'HH:mm' }}</td>
-                        <td>{{ services[0]?.dure/60}} </td>
-                        <td>{{ services[0]?.prix}} </td>
+                        <td>{{ services[i]?.dure/60}} </td>
+                        <td>{{ services[i]?.prix}} </td>
                     </tr>
                 </tbody>
             </table>

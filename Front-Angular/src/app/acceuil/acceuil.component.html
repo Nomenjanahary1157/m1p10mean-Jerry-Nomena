@@ -32,6 +32,9 @@
                   Votre rendez-vous sera le "29 Février 2024".
                 </div>
               </li>
+              <li class="nav-item" *ngIf="userconnected && userconnected.client">
+                <span class="nav-link">Argent: {{ userconnected.client.argent }}</span>
+              </li>
           </ul>
       </div>
   </div>

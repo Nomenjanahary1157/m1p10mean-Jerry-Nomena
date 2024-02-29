@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { base_url } from './app.module';
 import { Router } from '@angular/router';
 
@@ -16,6 +16,11 @@ export class ServiceService {
   constructor(private http: HttpClient, public router: Router) {
     this.isConnectedSubject = new BehaviorSubject<{ isConnected: boolean, client: any }>({ isConnected: false, client: null });
     this.isConnected$ = this.isConnectedSubject.asObservable();
+  }
+
+  effectuerOperation(): void {
+    const argentDuClient = this.isConnected.client.argent;
+    console.log('Montant d\'argent du client:', argentDuClient);
   }
 
   set isConnected(data: { isConnected: boolean, client: any }) {
@@ -70,6 +75,51 @@ export class ServiceService {
     return this.http.get<any>(`${base_url}/services`);
   }
 
+  getLastServEmployer(): Observable<any> {
+    return this.http.get<any>(`${base_url}/servElatest`);
+  }
+
+  insertServEmployer(idServEmployer: number, idService: number, idEmployer: number): Observable<any> {
+    const body = {
+      idServEmployer: idServEmployer,
+      idService: idService,
+      idEmployer: idEmployer
+    };
+
+    return this.http.post<any>(`${base_url}/ServEmployers`, body)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  insertRDV(id: number, idClient: number, idServEmployer: number, date: Date): Observable<any> {
+    const body = {
+      id: id,
+      idClient: idClient,
+      idServEmployer: idServEmployer,
+      date: date
+    };
+
+    return this.http.post<any>(`${base_url}/rdvs`, body)
+      .pipe(
+        catchError(this.handleErro)
+      );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+    } else {
+    }
+    return throwError('');
+  };
+
+  private handleErro(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+    } else {
+    }
+    return throwError('');
+  };
+
   connexion(username: string, mdp: string): Observable<any> {
     return this.http.get<any>(`${base_url}/clients/${username}/${mdp}`);
   }
@@ -84,6 +134,18 @@ export class ServiceService {
     this.isLoggedIn = false;
     this.isConnected = { isConnected: false, client: null };
   }
+
+  updateArgent(clientId: number, argent: number): Observable<any> {
+    const body = {
+      argent: argent
+    };
+  
+    return this.http.put<any>(`${base_url}/clients/${clientId}/update-argent`, body)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  
   
 
   inscription(id: number, nom: string, prenom: string, username: string, mdp: string, argent: number): Observable<any> {

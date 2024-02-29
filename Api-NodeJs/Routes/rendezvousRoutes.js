@@ -26,4 +26,16 @@ router.get('/rdvs/:id', async (req, res) => {
     }
 });
 
+router.post('/rdvs', async (req, res) => {
+    try {
+      const { id, idClient, idServEmployer, date } = req.body;
+      const rdv = new RDV({ id, idClient, idServEmployer, date });
+      await rdv.save();
+      res.status(201).send('Rendez-vous inséré avec succès.');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erreur lors de l\'insertion du rendez-vous.');
+    }
+  });
+
 module.exports = router;

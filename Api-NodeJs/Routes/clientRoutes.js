@@ -73,4 +73,34 @@ router.get('/clients/:nomEmployer/:motdepasse', async (req, res) => {
     }
 });
 
+router.put('/clients/:id/update-argent', async (req, res) => {
+    const clientId = req.params.id;
+    const argentInserer = req.body.argent;
+
+    try {
+        const client = await Client.findOne({ id: clientId });
+
+        if (!client) {
+            return res.status(404).json({ success: false, message: 'Client non trouvé' });
+        }
+
+        const argentActuel = client.argent;
+
+        if (argentActuel < argentInserer) {
+            return res.status(400).json({ success: false, message: 'Montant inséré supérieur au solde du client' });
+        }
+
+        const nouveauSolde = argentActuel - argentInserer;
+
+        client.argent = nouveauSolde;
+        await client.save();
+
+        return res.status(200).json({ success: true, message: 'Montant d\'argent du client mis à jour avec succès' });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ success: false, message: 'Erreur lors de la mise à jour du montant d\'argent du client' });
+    }
+});
+
+
 module.exports = router;

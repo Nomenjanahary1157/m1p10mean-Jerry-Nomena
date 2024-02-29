@@ -17,8 +17,13 @@ export class AcceuilComponent implements OnInit {
   showNotFoundAlert: boolean = false;
   showPromotionAlert: boolean = false;
   userconnected : any;
+  clientAsNumber: number | undefined;
+
   
-  constructor(private router: Router, private service: ServiceService) {}
+  constructor(private router: Router, private service: ServiceService) {
+    this.userconnected = this.service.isConnected;
+    this.clientAsNumber = parseInt(this.userconnected.client, 10);
+  }
 
   ngOnInit() {
     this.showRDVAlert = true;
