@@ -1,19 +1,18 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-
 @Component({
-  selector: 'app-delete',
-  templateUrl: './delete.component.html',
-  styleUrls: ['./delete.component.css']
+  selector: 'app-delete-pers',
+  templateUrl: './delete-pers.component.html',
+  styleUrls: ['./delete-pers.component.css']
 })
-export class DeleteComponent {
+export class DeletePersComponent {
 
   selectedRows: any[] = [];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<DeleteComponent>
+    public dialogRef: MatDialogRef<DeletePersComponent>
   ) {
   
     this.selectedRows = data.selectedRows;
@@ -23,4 +22,5 @@ export class DeleteComponent {
   closeModal(): void {
     this.dialogRef.close();
   }
+
 }

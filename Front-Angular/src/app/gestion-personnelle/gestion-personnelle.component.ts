@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { DeleteComponent } from '../delete/delete.component';
-import { UpdateComponent } from '../update/update.component';
+import { DeletePersComponent } from '../delete-pers/delete-pers.component';
+import { UpdatePersComponent } from '../update-pers/update-pers.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ServiceService } from '../service.service';
 
@@ -15,16 +15,36 @@ import { ServiceService } from '../service.service';
 
 export class GestionPersonnelleComponent {
   todo: any[] = [];
+  serv: any[] = [];
+
+  selectedRows: any[] = []; 
 
   constructor(private router: Router,private dialog: MatDialog,private service: ServiceService) {}
   goToGestionPersonnel() {
     this.router.navigate(['/gestionPersonnel']);
   }
   openModal(): void {
-    this.dialog.open(DeleteComponent);
+    this.dialog.open(DeletePersComponent, {
+      data: { selectedRows: this.selectedRows }
+    });
   }
-  updateModal(): void {
-    this.dialog.open(UpdateComponent);
+
+  onCheckboxChange(item: any): void {
+    item.isChecked = !item.isChecked;
+    if (item.isChecked) {
+      this.selectedRows.push(item);
+    } else {
+      const index = this.selectedRows.findIndex(selectedItem => selectedItem.idService === item.idService);
+      if (index !== -1) {
+        this.selectedRows.splice(index, 1);
+      }
+    }
+  }
+  updateModal(idEmployer:any,nomEmployer:string ,prenomEmployer: string, salaire:number,dateEmbauche:Date): void {
+    const dialogRef = this.dialog.open(UpdatePersComponent, {
+      data: { idEmployer:idEmployer, nomEmployer:nomEmployer,prenomEmployer: prenomEmployer, salaire:salaire, dateEmbauche:dateEmbauche }
+  
+    });
   }
   inputFields: any[] = [];
 
@@ -45,5 +65,39 @@ export class GestionPersonnelleComponent {
           this.todo = data;
           console.table(this.todo)
       });
+      this.service.getService().subscribe(data => {
+        this.serv = data;
+        // console.table(this.todo)
+    });
+  }
+
+  form : any = {
+    nomEmployer : null,
+    prenomEmployer : null,
+    salaire : null,
+    dateEmbauche : null,
+  }
+  add() {
+    const idEmployer = 4;
+    const { nomEmployer, prenomEmployer, salaire, dateEmbauche} = this.form;
+    // console.log(nomEmployer);
+    // console.log(prenomEmployer);
+    // console.log(salaire);
+    // console.log(dateEmbauche);
+
+
+    if (nomEmployer !== null && prenomEmployer !== null && salaire !== null && dateEmbauche !== null) {
+      // console.log("mitovy");
+      this.service.addPers(idEmployer,nomEmployer, prenomEmployer, salaire, dateEmbauche).subscribe(
+        (response) => {
+          console.log(response); 
+          this.router.navigate(['/gestionPers']); 
+        },
+        (error) => {
+          console.error(error); 
+          this.router.navigate(['/gestionPers']); 
+        }
+      );
+    }
   }
 }

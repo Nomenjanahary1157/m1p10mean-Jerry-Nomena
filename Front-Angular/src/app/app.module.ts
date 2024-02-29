@@ -28,6 +28,8 @@ import { DeleteComponent } from './delete/delete.component';
 import { UpdateComponent } from './update/update.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
 import { NgChartsModule } from 'ng2-charts';
+import { UpdatePersComponent } from './update-pers/update-pers.component';
+import { DeletePersComponent } from './delete-pers/delete-pers.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { NgChartsModule } from 'ng2-charts';
     AdminLoginComponent,
     DeleteComponent,
     UpdateComponent,
-    StatistiqueComponent
+    StatistiqueComponent,
+    UpdatePersComponent,
+    DeletePersComponent
   ],
   imports: [
     BrowserModule,
@@ -68,4 +72,5 @@ import { NgChartsModule } from 'ng2-charts';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// export const base_url="https://api-garages.onrender.com/api";
 export const base_url="http://localhost:2024/api";

@@ -36,36 +36,59 @@
         <div class="col-md-4 ">
           <h3>NOUVEAU SERVICE</h3>
           <div id="addService">
+            <form>
             <div class="form-group">
-              <input class="form-control" type="text" name="newService" id="newService" placeholder="Nom du Service" required>
+              <input class="form-control" type="text" name="nomService" placeholder="Nom du Service" [(ngModel)]="form.nomService" required>
+              <br>
+              <input class="form-control" type="number" name="dure" placeholder="Durer" [(ngModel)]="form.dure" required>
+              <br>
+              <label for="">Categorie :</label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="nomOption" value="Coiffure" [(ngModel)]="form.nomOption">
+                <label class="form-check-label" for="inlineRadio1">Coiffure</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="nomOption" value="Manicure" [(ngModel)]="form.nomOption">
+                <label class="form-check-label" for="inlineRadio2">Manicure</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="nomOption" value="Pedicure" [(ngModel)]="form.nomOption">
+                <label class="form-check-label" for="inlineRadio3">Pedicure</label>
+              </div>
+              <br>
+              <br>
+              <input class="form-control" type="number" name="prix" placeholder="Prix" [(ngModel)]="form.prix" required>
             </div>
             <br>
-            <button class="btn btn-primary form-control" type="submit" style="background-color:rgb(168,155,141); border-color:rgb(246,247,249); color: black">Ajouter Service</button>
+            <button class="btn btn-primary form-control" type="submit" style="background-color:rgb(168,155,141); border-color:rgb(246,247,249); color: black" (click)="add()">Ajouter Service</button>
+          </form>
+
           </div>
         </div>
         <div class="col-md-8">
         <h3>SERVICE</h3>
           <table id="service" class="table table-striped">
             <tr>
-              <th>DELETE</th>
-              <th>CATEGORIE</th>
-              <th>DURER/Min</th>
+              <th>SUPPRIMER</th>
               <th>DESIGNATION</th>
+              <th>DURER/Min</th>
+              <th>CATEGORIE</th>
               <th>PRIX/Ar</th>
 
             </tr>
-            <tr *ngFor="let item of todo" id="">
+            <tr *ngFor="let item of todo" [attr.id]="item.idService" id="">
               <td align="center">
-                <input class="deleteService" type="checkbox" id="servicd" name="deleteService" value="0">
+                <input class="deleteService" type="checkbox" id="service-{{ item.idService }}" name="deleteService" value="0" (change)="onCheckboxChange(item)">
               </td>
-              <td class="result" name="nameService" id="name">{{ item.nomOption }}</td>
-              <td class="result" name="nameService" id="name">{{ item.dure }}</td>
-              <td class="result" name="id" id="id" >{{ item.nomService }}</td>
-              <td class="result" name="nameService" id="name">{{ item.prix }}</td>
+              <td class="result" name="nomOption" id="name">{{ item.nomOption }}</td>
+              <td class="result" name="dure" id="name">{{ item.dure }}</td>
+              <td class="result" name="nomService" id="id" >{{ item.nomService }}</td>
+              <td class="result" name="prix" id="name">{{ item.prix }}</td>
 
 
               <td align="center">
-                <button class="btn btn-success form-control"  (click)="updateModal()">MODIFIER</button>
+                <button class="btn btn-success form-control"  (click)="updateModal(item.idService,item.nomOption,item.dure,item.nomService,item.prix)">MODIFIER</button>
               </td>  
             </tr>
             <br>

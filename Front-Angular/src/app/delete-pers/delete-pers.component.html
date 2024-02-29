@@ -6,7 +6,7 @@
     <div class="card-body">
       <p class="card-text">Etes vous sure de vouloir supprimer ?</p>
       <ul>
-        <li *ngFor="let row of selectedRows">{{ row.nomOption }}</li>
+        <li *ngFor="let row of selectedRows">{{ row.nomEmployer }} {{row.prenomEmployer}}</li>
       </ul>
     </div>
     <div class="card-footer" style="text-align:right">

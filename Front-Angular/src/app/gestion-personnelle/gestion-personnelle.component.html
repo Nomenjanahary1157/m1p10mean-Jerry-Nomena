@@ -37,59 +37,58 @@
         <div class="col-md-4 ">
           <h3>NOUVEAU PERSONNELLE</h3>
           <div id="addProfil">
+            <form>
             <div class="form-group">
-              <input class="form-control" type="text" name="newUser" id="newUser" placeholder="UserName" required>
+              <input class="form-control" type="text" name="nomEmployer" placeholder="Nom" [(ngModel)]="form.nomEmployer" required>
               <br>
-              <input class="form-control" type="text" name="newProfil" id="newProfil" placeholder="Nom de l'utilisateur" required>
+              <input class="form-control" type="text" name="prenomEmployer" placeholder="Prenom" [(ngModel)]="form.prenomEmployer" required>
               <br>
-              <input class="form-control" type="password"  id="newMDP" name="newMDP" placeholder="Nouveau Mots de passe">
-              <br>
-              <input class="form-control" type="password"  id="confirmation" name="confirmation" placeholder="Confirmer votre mots de passe">
-              <br> 
-              <input class="form-control" type="number"  id="salaire" name="salaire" placeholder="Salaire">
+              <input class="form-control" type="number" name="salaire" placeholder="Montant du salaire" [(ngModel)]="form.salaire" required>
               <br> 
               <label for="">Date d'embauche :</label>
-              <input class="form-control" type="date"  id="dateEmbauche" name="dateEmbauche" placeholder="">
+              <input class="form-control" type="date" name="dateEmbauche"  [(ngModel)]="form.dateEmbauche" required>
               <br>  
               <label for="">Service : </label>
               <button class="btn btn-primary" (click)="addInputField()" style="background-color:rgb(168,155,141); border-color:rgb(246,247,249); color: black">+</button>
               <br> 
               <br> 
               <div class="form-group" *ngFor="let index of inputFields; let i = index">
-              <button class="btn btn-danger" (click)="removeInputField(i)" style="float:right">-</button>
-                <select id="select_role" class="form-control">
-                  <option selected>Choisir</option>
-                  <option value="">poste.designation</option>
+                <button class="btn btn-danger" (click)="removeInputField(i)" style="float:right">-</button>
+                <select id="select_role"  class="form-control">
+                  <option value=""></option>
                 </select>
                 <br>
-              </div>    
+              </div>  
 
             </div>
             <br>
-            <button class="btn btn-primary form-control" type="submit" style="background-color:rgb(168,155,141); border-color:rgb(246,247,249); color: black">Inscrire Personnelle</button>
+            <button class="btn btn-primary form-control" type="submit" style="background-color:rgb(168,155,141); border-color:rgb(246,247,249); color: black" (click)="add()">Inscrire Personnelle</button>
+          </form>  
+
           </div>
+
         </div>
         <div class="col-md-8">
           <h3>PERSONNELLE</h3>
           <table id="profil" class="table table-striped">
             <tr>
-              <th>DELETE</th>
-              <th>Nom</th>
-              <th>Prenom</th>
-              <th>Salaire</th>
-              <th>Date d'embauche</th>
+              <th>SUPPRIMER</th>
+              <th>NOM</th>
+              <th>PRENOM</th>
+              <th>SALAIRE</th>
+              <th>DATE D'EMBAUCHE</th>
 
             </tr>
-            <tr  *ngFor="let item of todo" id="" >
+            <tr  *ngFor="let item of todo" [attr.id]="item.idEmployer"  id="" >
               <td align="center">
-                <input class="" type="checkbox" id="profil" name="deleteProfil" value="0">
+                <input class="deleteEmployer" type="checkbox" id="personnelle-{{ item.idEmployer }}" name="deleteEmployer" value="0" (change)="onCheckboxChange(item)">
               </td>
-              <td class="result" name="idProfil" id="id" >{{item.nomEmployer}}</td>
-              <td class="result" name="nameProfil" id="name">{{item.prenomEmployer}}</td>
-              <td class="result" name="nameIdentifant" id="identifiant">{{item.salaire}}</td>
-              <td class="result" name="nameRole" id="role">{{item.dateEmbauche}}</td>
+              <td class="result" name="nomEmployer" id="id" >{{item.nomEmployer}}</td>
+              <td class="result" name="prenomEmployer" id="name">{{item.prenomEmployer}}</td>
+              <td class="result" name="salaire" id="identifiant">{{item.salaire}}</td>
+              <td class="result" name="dateEmbauche" id="role">{{item.dateEmbauche | date:'dd/MM/yyyy'}}</td>
               <td align="center">
-                <button class="btn btn-success form-control"  (click)="updateModal()">MODIFIER</button>
+                <button class="btn btn-success form-control"  (click)="updateModal(item.idEmployer,item.nomEmployer,item.prenomEmployer,item.salaire,item.dateEmbauche)">MODIFIER</button>
               </td>  
             </tr>
             <br>
