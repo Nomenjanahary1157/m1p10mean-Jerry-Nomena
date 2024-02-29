@@ -2,6 +2,21 @@ const express = require('express');
 const router = express.Router();
 const Employer = require('../models/employe');
 
+router.post('/employers', async (req, res) => {
+    try {
+        const employer = new Employer({
+            nomEmployer: req.body.nomEmployer,
+            prenomEmployer: req.body.prenomEmployer,
+            salaire: req.body.salaire,
+            dateEmbauche: req.body.dateEmbauche
+        });
+        const newemployer = await employer.save();
+        res.status(201).json(newemployer);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
 router.get('/employers', async (req, res) => {
     try {
         const employers = await Employer.find();
@@ -28,4 +43,3 @@ router.get('/employers/:id', async (req, res) => {
 
 
 module.exports = router;
-
